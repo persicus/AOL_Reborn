@@ -1,49 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// LoginWindow.xaml.cs (Code-behind for login UI)
+using AOL_Reborn.ViewModels;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace AOL_Reborn.Views
 {
-    /// <summary>
-    /// Interaction logic for LoginWindow.xaml
-    /// </summary>
     public partial class LoginWindow : Window
     {
+        private static string settingsPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "AOL_Reborn", "username.txt");
+
         public LoginWindow()
         {
             InitializeComponent();
+            DataContext = new LoginViewModel(); // ✅ Bind ViewModel to the UI
+            LoadUsername();
+        }
+
+        private void LoadUsername()
+        {
+            try
+            {
+                if (File.Exists(settingsPath))
+                {
+                    string storedUsername = File.ReadAllText(settingsPath).Trim();
+                    if (!string.IsNullOrWhiteSpace(storedUsername))
+                    {
+                        ((LoginViewModel)DataContext).Username = storedUsername; // ✅ Set ViewModel property
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading username: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
             string username = UsernameBox.Text;
-            string password = PasswordBox.Password;
 
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(username))
             {
-                MessageBox.Show("Please enter both username and password.", "Login Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Please enter a username.", "Login Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            // Here, you can validate user credentials or pass them to LoginViewModel
+            string? directoryPath = Path.GetDirectoryName(settingsPath);
+            if (!string.IsNullOrEmpty(directoryPath)) // ✅ Prevent null reference
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+            File.WriteAllText(settingsPath, username);
+
             MessageBox.Show($"Welcome, {username}!", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            // Navigate to Main Chat Window (not yet implemented)
             MainWindow chatWindow = new MainWindow();
             chatWindow.Show();
             this.Close();
         }
-
-
     }
 }

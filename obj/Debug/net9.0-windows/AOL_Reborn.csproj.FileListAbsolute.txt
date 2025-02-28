@@ -15,6 +15,7 @@ D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\AOL_Reborn.GeneratedMSBui
 D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\AOL_Reborn.AssemblyInfoInputs.cache
 D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\AOL_Reborn.AssemblyInfo.cs
 D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\AOL_Reborn.csproj.CoreCompileInputs.cache
+D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\AOL_Reborn.sourcelink.json
 D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\AOL_Reborn.dll
 D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\refint\AOL_Reborn.dll
 D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\AOL_Reborn.pdb

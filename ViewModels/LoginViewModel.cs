@@ -1,13 +1,25 @@
-﻿namespace AOL_Reborn.ViewModels
-{
-    public class LoginViewModel
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
+﻿using System.ComponentModel;
 
-        public LoginViewModel()
+namespace AOL_Reborn.ViewModels
+{
+    public class LoginViewModel : INotifyPropertyChanged
+    {
+        private string _username;
+
+        public string Username
         {
-            // Constructor logic here
+            get => _username;
+            set
+            {
+                _username = value;
+                OnPropertyChanged(nameof(Username));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
