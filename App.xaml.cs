@@ -7,6 +7,7 @@ namespace AOL_Reborn
     /// </summary>
     public partial class App : Application
     {
+
         [System.Runtime.InteropServices.DllImport("kernel32.dll")]
         private static extern bool AllocConsole();
 

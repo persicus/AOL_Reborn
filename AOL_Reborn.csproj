@@ -9,7 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\AIM_Logo.jpeg" />
+    <None Remove="Assets\AIM_Logo.png" />
+    <None Remove="Assets\AOL_Logo.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Converters\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\AIM_Logo.png" />
   </ItemGroup>
 
 </Project>

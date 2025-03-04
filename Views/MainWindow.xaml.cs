@@ -1,12 +1,13 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Input;
 using AOL_Reborn.Models;
+using AOL_Reborn.Services;
 
 namespace AOL_Reborn.Views
 {
     public partial class MainWindow : Window
     {
+        private NetworkService _networkService;
         public ObservableCollection<ChatMessage> Messages { get; set; }
 
         public MainWindow()
@@ -14,36 +15,30 @@ namespace AOL_Reborn.Views
             InitializeComponent();
             Messages = new ObservableCollection<ChatMessage>();
             DataContext = this;
-            MessageInput.KeyDown += MessageInput_KeyDown; // Attach key event
-        }
+            _networkService = new NetworkService();
 
-        private void SendButton_Click(object sender, RoutedEventArgs e)
-        {
-            SendMessage();
-        }
+            // Connect to EchoBot when the window loads
+            Loaded += async (s, e) => await _networkService.ConnectAsync("127.0.0.1", 0, 1);
 
-        private void MessageInput_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
+            // Subscribe to incoming messages from EchoBot
+            _networkService.MessageReceived += message =>
             {
-                SendMessage();
-                e.Handled = true; // Prevents new line in TextBox
-            }
+                Dispatcher.Invoke(() =>
+                {
+                    Messages.Add(new ChatMessage("EchoBot", message));
+                });
+            };
         }
 
-        private void SendMessage()
+        private async void SendButton_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(MessageInput.Text))
             {
-                Messages.Add(new ChatMessage("You", MessageInput.Text));
+                string userMessage = MessageInput.Text;
+                Messages.Add(new ChatMessage("You", userMessage));
+                await _networkService.SendMessageAsync(userMessage);
                 MessageInput.Clear();
-                ScrollToBottom(); // Auto-scroll after adding a new message
             }
-        }
-
-        private void ScrollToBottom()
-        {
-            ChatScrollViewer.ScrollToEnd();
         }
     }
 }
