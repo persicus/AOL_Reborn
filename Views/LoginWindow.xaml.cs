@@ -1,7 +1,7 @@
 ﻿// LoginWindow.xaml.cs (Code-behind for login UI)
-using AOL_Reborn.ViewModels;
 using System.IO;
 using System.Windows;
+using AOL_Reborn.ViewModels;
 
 namespace AOL_Reborn.Views
 {
@@ -14,7 +14,7 @@ namespace AOL_Reborn.Views
         public LoginWindow()
         {
             InitializeComponent();
-            DataContext = new LoginViewModel(); // ✅ Bind ViewModel to the UI
+            DataContext = new LoginViewModel(); //  Bind ViewModel to the UI
             LoadUsername();
         }
 
@@ -27,7 +27,7 @@ namespace AOL_Reborn.Views
                     string storedUsername = File.ReadAllText(settingsPath).Trim();
                     if (!string.IsNullOrWhiteSpace(storedUsername))
                     {
-                        ((LoginViewModel)DataContext).Username = storedUsername; // ✅ Set ViewModel property
+                        ((LoginViewModel)DataContext).Username = storedUsername; //  Set ViewModel property
                     }
                 }
             }
@@ -48,7 +48,7 @@ namespace AOL_Reborn.Views
             }
 
             string? directoryPath = Path.GetDirectoryName(settingsPath);
-            if (!string.IsNullOrEmpty(directoryPath)) // ✅ Prevent null reference
+            if (!string.IsNullOrEmpty(directoryPath)) // Prevent null reference
             {
                 Directory.CreateDirectory(directoryPath);
             }

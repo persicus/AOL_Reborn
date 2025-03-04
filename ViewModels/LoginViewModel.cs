@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace AOL_Reborn.ViewModels
 {
@@ -11,15 +12,24 @@ namespace AOL_Reborn.ViewModels
             get => _username;
             set
             {
-                _username = value;
-                OnPropertyChanged(nameof(Username));
+                if (_username != value)
+                {
+                    _username = value;
+                    OnPropertyChanged(); // No need to pass property name manually
+                }
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public LoginViewModel()
+        {
+            // Future expansion (e.g., loading stored username)
         }
     }
 }

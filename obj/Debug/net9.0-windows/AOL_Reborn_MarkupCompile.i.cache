@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\
+D:\ELUM-i3\AOL_App\AOL_Reborn\obj\Debug\net9.0-windows\
 AOL_Reborn
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-D:\AOL_Reborn_Chat\AOL_Reborn\App.xaml
-21594365281
+D:\ELUM-i3\AOL_App\AOL_Reborn\App.xaml
+2-1457342498
 
-8749410347
+91993083116
 200-1310591092
-MainWindow.xaml;Views\LoginWindow.xaml;
+Views\LoginWindow.xaml;Views\MainWindow.xaml;
 
 False
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AOL_Reborn")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82425174152de94dff99a6d6ac53b2dc35ebfcd4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61d4bebcc4d05baaa58b8f7a6a573e09b77b89c6")]
 [assembly: System.Reflection.AssemblyProductAttribute("AOL_Reborn")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AOL_Reborn")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
