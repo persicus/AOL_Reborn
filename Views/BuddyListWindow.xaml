@@ -31,6 +31,8 @@
             </TreeViewItem>
         </TreeView>
 
+        <!-- Wrench Icon Placeholder -->
+        <Image Source="/Assets/Wrench_Icon.png" Height="30" Width="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Cursor="Hand" MouseDown="OpenSettingsWindow" />
 
         <!-- AIM Icon Placeholder -->
         <Image Source="/Assets/AIM_Icon.png" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,10,0,10" />

@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using AOL_Reborn.Services;
 using AOL_Reborn.Properties;
 using System.Windows.Input;
+using System.Threading.Tasks;
 
 
 namespace AOL_Reborn.Views
@@ -27,7 +28,11 @@ namespace AOL_Reborn.Views
 
             Loaded += async (s, e) => await _networkService.ConnectAsync("127.0.0.1", 5000, 5001);
         }
-
+        private void OpenSettingsWindow(object sender, MouseButtonEventArgs e)
+        {
+            SettingsWindow settingsWindow = new SettingsWindow();
+            settingsWindow.ShowDialog();
+        }
 
         private void SignOff_Click(object sender, RoutedEventArgs e)
         {
@@ -61,7 +66,6 @@ namespace AOL_Reborn.Views
             return messageBox.DialogResult == true ? MessageBoxResult.Yes : MessageBoxResult.No;
         }
 
-
         private void GoOffline()
         {
             _networkService.SendOfflineStatus();
@@ -69,8 +73,6 @@ namespace AOL_Reborn.Views
             // Cleanup UDP client
             _networkService.Disconnect();
         }
-
-
 
         private void OpenLoginWindow()
         {
@@ -111,6 +113,26 @@ namespace AOL_Reborn.Views
                 }
             }
         }
+        public async Task RestartNetworkService()
+        {
+            _networkService.Disconnect(); // Ensure we disconnect first
+            _networkService = new NetworkService(); // Create a new instance
+            _networkService.MessageReceived += (message) =>
+            {
+                Dispatcher.Invoke(() => Console.WriteLine($"Received message: {message}"));
+            };
+
+            _networkService.StatusUpdated += UpdateBuddyList;
+
+            // Read updated settings and reconnect
+            string serverIp = Properties.Settings.Default.ServerIp;
+            int receivePort = int.Parse(Properties.Settings.Default.ReceivePort.ToString());
+            int sendPort = int.Parse(Properties.Settings.Default.SendPort.ToString());
+
+           await _networkService.ConnectAsync(serverIp, receivePort, sendPort); // Now using new settings
+        }
+
+
 
         private void OpenChatWindow(string friendName)
         {

@@ -12,6 +12,7 @@
     <None Remove="Assets\AIM_Logo.jpeg" />
     <None Remove="Assets\AIM_Logo.png" />
     <None Remove="Assets\AOL_Logo.jpeg" />
+    <None Remove="Assets\wrench_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,7 @@
 
   <ItemGroup>
     <Resource Include="Assets\AIM_Logo.png" />
+    <Resource Include="Assets\Wrench_Icon.png" />
   </ItemGroup>
 
   <ItemGroup>

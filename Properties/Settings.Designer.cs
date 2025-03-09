@@ -34,5 +34,41 @@ namespace AOL_Reborn.Properties {
                 this["AskSignOffConfirmation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
+        public string ServerIp {
+            get {
+                return ((string)(this["ServerIp"]));
+            }
+            set {
+                this["ServerIp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
+        public int ReceivePort {
+            get {
+                return ((int)(this["ReceivePort"]));
+            }
+            set {
+                this["ReceivePort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5001")]
+        public int SendPort {
+            get {
+                return ((int)(this["SendPort"]));
+            }
+            set {
+                this["SendPort"] = value;
+            }
+        }
     }
 }

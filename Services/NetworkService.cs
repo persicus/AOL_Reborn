@@ -17,17 +17,30 @@ namespace AOL_Reborn.Services
         {
             try
             {
-                if (_udpClient == null) //Ensure _udpClient is initialized
+                if (_udpClient != null)
                 {
-                    _udpClient = new UdpClient(receivePort);
+                    _udpClient.Close();
+                    _udpClient = null;
                 }
 
+                _udpClient = new UdpClient(receivePort);
                 _remoteEndPoint = new IPEndPoint(IPAddress.Parse(server), sendPort);
                 StartListening();
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error connecting: {ex.Message}");
+            }
+        }
+
+
+
+        public void Disconnect()
+        {
+            if (_udpClient != null)
+            {
+                _udpClient.Close();
+                _udpClient = null;
             }
         }
 
@@ -68,16 +81,6 @@ namespace AOL_Reborn.Services
             byte[] data = Encoding.UTF8.GetBytes(offlineMessage);
             _udpClient.SendAsync(data, data.Length, _remoteEndPoint);
         }
-        public void Disconnect()
-        {
-            if (_udpClient != null)
-            {
-                _udpClient.Close();
-                _udpClient = null; // Ensure it's null after disconnecting
-            }
-        }
-
-
 
 
         public override async Task SendMessageAsync(string message)
