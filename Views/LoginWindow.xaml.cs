@@ -57,9 +57,12 @@ namespace AOL_Reborn.Views
 
             MessageBox.Show($"Welcome, {username}!", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            MainWindow chatWindow = new MainWindow();
-            chatWindow.Show();
+            //Open Buddy List Window instead of Main Chat Window
+            BuddyListWindow buddyListWindow = new BuddyListWindow();
+            buddyListWindow.Show();
+
             this.Close();
         }
+
     }
 }

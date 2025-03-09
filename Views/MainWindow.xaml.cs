@@ -18,7 +18,7 @@ namespace AOL_Reborn.Views
             _networkService = new NetworkService();
 
             // Connect to EchoBot when the window loads
-            Loaded += async (s, e) => await _networkService.ConnectAsync("127.0.0.1", 0, 1);
+            Loaded += async (s, e) => await _networkService.ConnectAsync("127.0.0.1", 5001, 5000);
 
             // Subscribe to incoming messages from EchoBot
             _networkService.MessageReceived += message =>

@@ -10,6 +10,7 @@ namespace AOL_Reborn.ViewModels
         public string Username
         {
             get => _username;
+
             set
             {
                 if (_username != value)
@@ -31,5 +32,6 @@ namespace AOL_Reborn.ViewModels
         {
             // Future expansion (e.g., loading stored username)
         }
+    
     }
 }

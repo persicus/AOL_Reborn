@@ -8,23 +8,23 @@
     "net9.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Percy\\.nuget\\packages\\": {},
+    "C:\\Users\\Persicus\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\AOL_Reborn.csproj",
+      "projectUniqueName": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\AOL_Reborn.csproj",
       "projectName": "AOL_Reborn",
-      "projectPath": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\AOL_Reborn.csproj",
-      "packagesPath": "C:\\Users\\Percy\\.nuget\\packages\\",
-      "outputPath": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\obj\\",
+      "projectPath": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\AOL_Reborn.csproj",
+      "packagesPath": "C:\\Users\\Persicus\\.nuget\\packages\\",
+      "outputPath": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Percy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Persicus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

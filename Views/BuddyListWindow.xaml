@@ -1,0 +1,38 @@
+﻿<Window x:Class="AOL_Reborn.Views.BuddyListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Buddy List" Height="500" Width="300"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Grid>
+        <!-- AIM Logo Placeholder -->
+        <Image Source="/Assets/AIM_Logo.png" Height="50" HorizontalAlignment="Center" Margin="0,10,0,10" />
+
+        <!-- Menu Bar -->
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="My AIM">
+                <MenuItem Header="Sign Off" Click="SignOff_Click" />
+            </MenuItem>
+            <MenuItem Header="People">
+                <MenuItem Header="Placeholder" />
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="Placeholder" />
+            </MenuItem>
+        </Menu>
+
+        <!-- Friends List -->
+        <TreeView x:Name="BuddyTreeView" Margin="10,50,10,50" MouseDoubleClick="BuddyTreeView_MouseDoubleClick">
+            <TreeViewItem Header="Online">
+                <TreeViewItem Header="Friend 1" />
+            </TreeViewItem>
+            <TreeViewItem Header="Offline">
+                <TreeViewItem Header="Friend 2" />
+            </TreeViewItem>
+        </TreeView>
+
+
+        <!-- AIM Icon Placeholder -->
+        <Image Source="/Assets/AIM_Icon.png" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,10,0,10" />
+    </Grid>
+</Window>

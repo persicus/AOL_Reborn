@@ -14,7 +14,7 @@ namespace AOL_Reborn
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            AllocConsole(); // ✅ Opens a console window for debugging
+            AllocConsole(); // Opens a console window for debugging
         }
     }
 }
