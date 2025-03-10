@@ -28,9 +28,18 @@ public class DatabaseMessageStorage : IMessageStorage
     {
         using (var db = new AppDbContext())
         {
+            //  Ensure we get the correct conversation first
+            var conversation = db.Conversations
+                .FirstOrDefault(c =>
+                    (c.ParticipantOne == sender && c.ParticipantTwo == receiver) ||
+                    (c.ParticipantOne == receiver && c.ParticipantTwo == sender));
+
+            if (conversation == null)
+                return new List<ChatMessage>(); // No conversation exists yet
+
+            // Now fetch messages using ConversationId
             return db.Messages
-                .Where(m => (m.Sender == sender && m.Receiver == receiver) ||
-                            (m.Sender == receiver && m.Receiver == sender))
+                .Where(m => m.ConversationId == conversation.Id) // Correct filtering
                 .OrderBy(m => m.Timestamp)
                 .ToList();
         }
@@ -47,6 +56,31 @@ public class DatabaseMessageStorage : IMessageStorage
 
             db.Messages.RemoveRange(messages);
             db.SaveChanges();
+        }
+    }
+
+    public int GetOrCreateConversationId(string userOne, string userTwo)
+    {
+        using (var db = new AppDbContext())
+        {
+            var conversation = db.Conversations
+                .FirstOrDefault(c =>
+                    (c.ParticipantOne == userOne && c.ParticipantTwo == userTwo) ||
+                    (c.ParticipantOne == userTwo && c.ParticipantTwo == userOne));
+
+            if (conversation == null)
+            {
+                conversation = new Conversation
+                {
+                    ParticipantOne = userOne,
+                    ParticipantTwo = userTwo,
+                    CreatedAt = DateTime.Now
+                };
+                db.Conversations.Add(conversation);
+                db.SaveChanges();
+            }
+
+            return conversation.Id;
         }
     }
 }

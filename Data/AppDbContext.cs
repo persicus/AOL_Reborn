@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using AOL_Reborn.Models;
+﻿using AOL_Reborn.Models;
+using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace AOL_Reborn.Data
 {
@@ -7,10 +8,14 @@ namespace AOL_Reborn.Data
     {
         public DbSet<ChatMessage> Messages { get; set; }
         public DbSet<Friend> Friends { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Conversation> Conversations { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            options.UseSqlite("Data Source=chatapp.db");
+            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "chatapp.db"); //Always use the same path
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
         }
+
     }
 }

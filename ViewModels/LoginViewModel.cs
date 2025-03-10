@@ -21,9 +21,9 @@ namespace AOL_Reborn.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -32,6 +32,5 @@ namespace AOL_Reborn.ViewModels
         {
             // Future expansion (e.g., loading stored username)
         }
-    
     }
 }

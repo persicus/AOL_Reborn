@@ -1,7 +1,8 @@
-﻿using System.Windows;
-using System;
-using AOL_Reborn.Data;
+﻿using AOL_Reborn.Data;
+using AOL_Reborn.Services;
 using Microsoft.Extensions.DependencyInjection;
+using System.Runtime.InteropServices;
+using System.Windows;
 
 namespace AOL_Reborn
 {
@@ -10,10 +11,11 @@ namespace AOL_Reborn
     /// </summary>
     public partial class App : Application
     {
-        public static ServiceProvider ServiceProvider { get; private set; }
+        public static ServiceProvider? ServiceProvider { get; private set; }
 
-        [System.Runtime.InteropServices.DllImport("kernel32.dll")]
-        private static extern bool AllocConsole();
+        [LibraryImport("kernel32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static partial bool AllocConsole();
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -25,15 +27,8 @@ namespace AOL_Reborn
             serviceCollection.AddSingleton<IMessageStorage, DatabaseMessageStorage>();
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
-
-            using (var db = new AppDbContext())
-            {
-                db.Database.EnsureCreated();
-            }
-
-           
-
+            using var db = new AppDbContext();
+            db.Database.EnsureCreated();
         }
     }
 }
-

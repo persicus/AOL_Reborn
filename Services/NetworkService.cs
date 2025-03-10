@@ -6,34 +6,32 @@ namespace AOL_Reborn.Services
 {
     public class NetworkService : NetworkManagerBase
     {
-        private UdpClient _udpClient;
-        private IPEndPoint _receiveEndPoint;
-        private IPEndPoint _remoteEndPoint;
+        private UdpClient? _udpClient;
 
-        public event Action<string, bool> StatusUpdated;
+        private IPEndPoint? _remoteEndPoint;
 
+        public event Action<string, bool> StatusUpdated = delegate { };
+
+        public NetworkService()
+        {
+            _udpClient = new UdpClient();
+        }
 
         public override async Task ConnectAsync(string server, int receivePort, int sendPort)
         {
             try
             {
-                if (_udpClient != null)
-                {
-                    _udpClient.Close();
-                    _udpClient = null;
-                }
-
+                Disconnect(); // Ensures old connection is properly closed before reconnecting
                 _udpClient = new UdpClient(receivePort);
                 _remoteEndPoint = new IPEndPoint(IPAddress.Parse(server), sendPort);
-                StartListening();
+
+                await StartListening(); //Ensures proper async execution
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error connecting: {ex.Message}");
             }
         }
-
-
 
         public void Disconnect()
         {
@@ -44,34 +42,40 @@ namespace AOL_Reborn.Services
             }
         }
 
-
-
-        private async void StartListening()
+        private async Task StartListening()
         {
+            if (_udpClient == null)
+            {
+                Console.WriteLine("UDP Client is null, stopping listener.");
+                return;
+            }
+
             try
             {
-                while (true)
+                while (_udpClient != null) // Prevents listening if disconnected
                 {
                     var result = await _udpClient.ReceiveAsync();
                     string receivedMessage = Encoding.UTF8.GetString(result.Buffer);
 
                     if (!string.IsNullOrEmpty(receivedMessage))
                     {
-                        OnMessageReceived(receivedMessage); // Properly invoke the base class event
+                        OnMessageReceived(receivedMessage);
                     }
                 }
             }
+            catch (ObjectDisposedException)
+            {
+                Console.WriteLine("UDP Client was disposed, stopping listener.");
+            }
             catch (Exception ex)
             {
-                Console.WriteLine($"UDP Receive Error: {ex.Message}");
+                Console.WriteLine($"Error in UDP receiving: {ex.Message}");
             }
         }
 
-
-
         public void SendOfflineStatus()
         {
-            if (_udpClient == null) //Prevent sending if _udpClient is null
+            if (_udpClient == null)
             {
                 Console.WriteLine("Warning: Attempted to send offline status, but UDP client was null.");
                 return;
@@ -82,7 +86,6 @@ namespace AOL_Reborn.Services
             _udpClient.SendAsync(data, data.Length, _remoteEndPoint);
         }
 
-
         public override async Task SendMessageAsync(string message)
         {
             if (_udpClient == null)
@@ -92,8 +95,7 @@ namespace AOL_Reborn.Services
             }
 
             byte[] data = Encoding.UTF8.GetBytes(message);
-            await _udpClient.SendAsync(data, data.Length, _remoteEndPoint); // Ensure the right port is used
+            await _udpClient.SendAsync(data, data.Length, _remoteEndPoint);
         }
-
     }
 }

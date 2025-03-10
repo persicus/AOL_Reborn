@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP
 D:\AOL_Reborn_Chat\AOL_Reborn\App.xaml
-51216877235
+5-1769267388
 
-221939081430
+32587098692
 2191160526852
-Views\BuddyListWindow.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;Views\SettingsWindow.xaml;Views\SignOffConfirmationDialog.xaml;
+Views\BuddyListWindow.xaml;Views\ChatMainWindow.xaml;Views\LoginWindow.xaml;Views\SettingsWindow.xaml;Views\SignOffConfirmationDialog.xaml;
 
 False
 

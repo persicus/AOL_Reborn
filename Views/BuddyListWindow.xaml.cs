@@ -1,10 +1,8 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using AOL_Reborn.Models;
 using AOL_Reborn.Services;
-using AOL_Reborn.Properties;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
-using System.Threading.Tasks;
-
 
 namespace AOL_Reborn.Views
 {
@@ -28,9 +26,10 @@ namespace AOL_Reborn.Views
 
             Loaded += async (s, e) => await _networkService.ConnectAsync("127.0.0.1", 5000, 5001);
         }
+
         private void OpenSettingsWindow(object sender, MouseButtonEventArgs e)
         {
-            SettingsWindow settingsWindow = new SettingsWindow();
+            SettingsWindow settingsWindow = new();
             settingsWindow.ShowDialog();
         }
 
@@ -47,12 +46,12 @@ namespace AOL_Reborn.Views
             OpenLoginWindow();
         }
 
-        private bool ShouldAskForSignOffConfirmation()
+        private static bool ShouldAskForSignOffConfirmation()
         {
             return Properties.Settings.Default.AskSignOffConfirmation;
         }
 
-        private MessageBoxResult ShowSignOffConfirmation()
+        private static MessageBoxResult ShowSignOffConfirmation()
         {
             var messageBox = new SignOffConfirmationDialog();
             messageBox.ShowDialog();
@@ -76,7 +75,7 @@ namespace AOL_Reborn.Views
 
         private void OpenLoginWindow()
         {
-            LoginWindow loginWindow = new LoginWindow();
+            LoginWindow loginWindow = new();
             loginWindow.Show();
             this.Close();
         }
@@ -106,13 +105,14 @@ namespace AOL_Reborn.Views
         {
             if (BuddyTreeView.SelectedItem is TreeViewItem selectedFriend)
             {
-                string friendName = selectedFriend.Header.ToString();
+                string friendName = selectedFriend.Header?.ToString() ?? string.Empty;
                 if (!string.IsNullOrEmpty(friendName))
                 {
                     OpenChatWindow(friendName);
                 }
             }
         }
+
         public async Task RestartNetworkService()
         {
             _networkService.Disconnect(); // Ensure we disconnect first
@@ -129,23 +129,18 @@ namespace AOL_Reborn.Views
             int receivePort = int.Parse(Properties.Settings.Default.ReceivePort.ToString());
             int sendPort = int.Parse(Properties.Settings.Default.SendPort.ToString());
 
-           await _networkService.ConnectAsync(serverIp, receivePort, sendPort); // Now using new settings
+            await _networkService.ConnectAsync(serverIp, receivePort, sendPort); // Now using new settings
         }
 
-
-
-        private void OpenChatWindow(string friendName)
+  
+        private static void OpenChatWindow(string friendName)
         {
-            string currentUser = "YourUsername"; // Replace with actual username
+            User currentUser = SessionManager.GetCurrentUser();
             IChatService chatService = new NetworkChatService();
             IMessageStorage messageStorage = new DatabaseMessageStorage();
 
-            MainWindow chatWindow = new MainWindow(currentUser, friendName, chatService, messageStorage);
+            ChatMainWindow chatWindow = new(currentUser, friendName, chatService, messageStorage);
             chatWindow.Show();
         }
-
-
-
-
     }
 }

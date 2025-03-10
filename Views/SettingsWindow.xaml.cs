@@ -1,5 +1,5 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Threading.Tasks;
+using System.Windows;
 
 namespace AOL_Reborn.Views
 {
@@ -25,16 +25,19 @@ namespace AOL_Reborn.Views
             Properties.Settings.Default["SendPort"] = int.Parse(SendPortTextBox.Text);
             Properties.Settings.Default.Save();
 
-            // Restart the network service with new settings
-            if (Application.Current.MainWindow is BuddyListWindow mainWindow)
-            {
-                mainWindow.RestartNetworkService();
-            }
+            // Restart the network service asynchronously
+            _ = RestartNetworkServiceAsync();
 
             this.Close();
         }
 
-
+        private static async Task RestartNetworkServiceAsync()
+        {
+            if (Application.Current.MainWindow is BuddyListWindow mainWindow)
+            {
+                await mainWindow.RestartNetworkService();
+            }
+        }
 
         private void CancelSettings_Click(object sender, RoutedEventArgs e)
         {

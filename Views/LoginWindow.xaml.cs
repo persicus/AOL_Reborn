@@ -1,7 +1,10 @@
 ﻿// LoginWindow.xaml.cs (Code-behind for login UI)
+using AOL_Reborn.Data;
+using AOL_Reborn.Models;
+using AOL_Reborn.Services;
+using AOL_Reborn.ViewModels;
 using System.IO;
 using System.Windows;
-using AOL_Reborn.ViewModels;
 
 namespace AOL_Reborn.Views
 {
@@ -36,33 +39,45 @@ namespace AOL_Reborn.Views
                 MessageBox.Show($"Error loading username: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-            string username = UsernameBox.Text;
+            string username = UsernameBox.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(username))
             {
-                MessageBox.Show("Please enter a username.", "Login Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Please enter a screen name.", "Login Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            string? directoryPath = Path.GetDirectoryName(settingsPath);
-            if (!string.IsNullOrEmpty(directoryPath)) // Prevent null reference
+            using var db = new AppDbContext();
+
+            // ✅ Check if the user already exists
+            User? existingUser = db.Users.FirstOrDefault(u => u.Username == username);
+
+            if (existingUser == null)
             {
-                Directory.CreateDirectory(directoryPath);
+                // ✅ Create a new user if it doesn't exist
+                existingUser = new User
+                {
+                    Username = username,
+                    DisplayName = username, // Default display name is the same as username
+                    IsOnline = true
+                };
+
+                db.Users.Add(existingUser);
+                db.SaveChanges(); // ✅ This must be here to persist changes!
             }
 
-            File.WriteAllText(settingsPath, username);
+            // ✅ Store user session
+            SessionManager.SetCurrentUser(existingUser);
 
-            MessageBox.Show($"Welcome, {username}!", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            //Open Buddy List Window instead of Main Chat Window
-            BuddyListWindow buddyListWindow = new BuddyListWindow();
-            buddyListWindow.Show();
-
+            // ✅ Open the Buddy List Window
+            BuddyListWindow buddyList = new BuddyListWindow();
+            buddyList.Show();
             this.Close();
         }
+
+
 
     }
 }

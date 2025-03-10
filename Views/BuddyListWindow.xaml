@@ -1,17 +1,25 @@
-﻿<Window x:Class="AOL_Reborn.Views.BuddyListWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Buddy List" Height="500" Width="300"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+﻿<Window
+    x:Class="AOL_Reborn.Views.BuddyListWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Buddy List"
+    Width="300"
+    Height="500"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen">
 
     <Grid>
-        <!-- AIM Logo Placeholder -->
-        <Image Source="/Assets/AIM_Logo.png" Height="50" HorizontalAlignment="Center" Margin="0,10,0,10" />
+        <!--  AIM Logo Placeholder  -->
+        <Image
+            Height="50"
+            Margin="0,10,0,10"
+            HorizontalAlignment="Center"
+            Source="/Assets/AIM_Logo.png" />
 
-        <!-- Menu Bar -->
+        <!--  Menu Bar  -->
         <Menu VerticalAlignment="Top">
             <MenuItem Header="My AIM">
-                <MenuItem Header="Sign Off" Click="SignOff_Click" />
+                <MenuItem Click="SignOff_Click" Header="Sign Off" />
             </MenuItem>
             <MenuItem Header="People">
                 <MenuItem Header="Placeholder" />
@@ -21,8 +29,11 @@
             </MenuItem>
         </Menu>
 
-        <!-- Friends List -->
-        <TreeView x:Name="BuddyTreeView" Margin="10,50,10,50" MouseDoubleClick="BuddyTreeView_MouseDoubleClick">
+        <!--  Friends List  -->
+        <TreeView
+            x:Name="BuddyTreeView"
+            Margin="10,50,10,50"
+            MouseDoubleClick="BuddyTreeView_MouseDoubleClick">
             <TreeViewItem Header="Online">
                 <TreeViewItem Header="Friend 1" />
             </TreeViewItem>
@@ -31,10 +42,23 @@
             </TreeViewItem>
         </TreeView>
 
-        <!-- Wrench Icon Placeholder -->
-        <Image Source="/Assets/Wrench_Icon.png" Height="30" Width="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10" Cursor="Hand" MouseDown="OpenSettingsWindow" />
+        <!--  Wrench Icon Placeholder  -->
+        <Image
+            Width="30"
+            Height="30"
+            Margin="10"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Cursor="Hand"
+            MouseDown="OpenSettingsWindow"
+            Source="/Assets/Wrench_Icon.png" />
 
-        <!-- AIM Icon Placeholder -->
-        <Image Source="/Assets/AIM_Icon.png" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,10,0,10" />
+        <!--  AIM Icon Placeholder  -->
+        <Image
+            Height="40"
+            Margin="0,10,0,10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Source="/Assets/AIM_Icon.png" />
     </Grid>
 </Window>
