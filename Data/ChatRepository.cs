@@ -4,12 +4,12 @@ namespace AOL_Reborn.Data
 {
     public class ChatRepository
     {
-        private readonly AppDbContext _dbContex;
+        private readonly AppDbContext _dbContext;
         // Save a new message to the database
 
         public ChatRepository(AppDbContext dbContext)
         {
-            _dbContex = dbContext;
+            _dbContext = dbContext;
         }
 
         public ChatRepository()
@@ -25,7 +25,7 @@ namespace AOL_Reborn.Data
             }
         }
 
-        public User? GetUserByUserName(string username) => _dbContex.Users.FirstOrDefault(u => u.Username == username);
+        public User? GetUserByUserName(string username) => _dbContext.Users.FirstOrDefault(u => u.Username == username);
 
         // Load all messages between two users
         public List<ChatMessage> GetMessages(string sender, string receiver)
