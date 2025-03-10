@@ -2,43 +2,60 @@
 using System.Windows;
 using AOL_Reborn.Models;
 using AOL_Reborn.Services;
+using AOL_Reborn.Data;
 
 namespace AOL_Reborn.Views
 {
     public partial class MainWindow : Window
     {
-        private NetworkService _networkService;
+        private readonly IChatService _chatService;
+        private readonly IMessageStorage _messageStorage;
+        private readonly string _currentUser;
+        private readonly string _chatPartner;
         public ObservableCollection<ChatMessage> Messages { get; set; }
 
-        public MainWindow()
+        public MainWindow(string currentUser, string chatPartner, IChatService chatService, IMessageStorage messageStorage)
         {
             InitializeComponent();
-            Messages = new ObservableCollection<ChatMessage>();
+            _chatService = chatService;
+            _messageStorage = messageStorage;
+            _currentUser = currentUser;
+            _chatPartner = chatPartner;
+
+            Messages = new ObservableCollection<ChatMessage>(_messageStorage.GetMessages(_currentUser, _chatPartner));
             DataContext = this;
-            _networkService = new NetworkService();
 
-            // Connect to EchoBot when the window loads
-            Loaded += async (s, e) => await _networkService.ConnectAsync("127.0.0.1", 5001, 5000);
-
-            // Subscribe to incoming messages from EchoBot
-            _networkService.MessageReceived += message =>
+            // Subscribe to incoming messages
+            _chatService.MessageReceived += message =>
             {
                 Dispatcher.Invoke(() =>
                 {
-                    Messages.Add(new ChatMessage("EchoBot", message));
+                    var newMessage = new ChatMessage("EchoBot", _currentUser, message);
+                    _messageStorage.SaveMessageAsync(newMessage);
+                    Messages.Add(newMessage);
                 });
             };
+
+            // Connect to chat service
+            _chatService.ConnectAsync("127.0.0.1", 5001, 5000);
         }
 
         private async void SendButton_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(MessageInput.Text))
             {
-                string userMessage = MessageInput.Text;
-                Messages.Add(new ChatMessage("You", userMessage));
-                await _networkService.SendMessageAsync(userMessage);
+                var userMessage = new ChatMessage(_currentUser, _chatPartner, MessageInput.Text);
+                _messageStorage.SaveMessage(userMessage);
+                Messages.Add(userMessage);
+                await _chatService.SendMessageAsync(userMessage.Message);
                 MessageInput.Clear();
             }
+        }
+
+        private void DeleteChatHistory_Click(object sender, RoutedEventArgs e)
+        {
+            _messageStorage.DeleteChatHistory(_currentUser, _chatPartner);
+            Messages.Clear();
         }
     }
 }

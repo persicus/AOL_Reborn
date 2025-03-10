@@ -136,10 +136,15 @@ namespace AOL_Reborn.Views
 
         private void OpenChatWindow(string friendName)
         {
-            MainWindow chatWindow = new MainWindow();
-            chatWindow.Title = $"Chat with {friendName}";
+            string currentUser = "YourUsername"; // Replace with actual username
+            IChatService chatService = new NetworkChatService();
+            IMessageStorage messageStorage = new DatabaseMessageStorage();
+
+            MainWindow chatWindow = new MainWindow(currentUser, friendName, chatService, messageStorage);
             chatWindow.Show();
         }
+
+
 
 
     }
