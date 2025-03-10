@@ -1,8 +1,12 @@
-﻿using AOL_Reborn.Models;
-using AOL_Reborn.Services;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
+using AOL_Reborn.Data;
+using AOL_Reborn.Models;
+using AOL_Reborn.Services;
+using AOL_Reborn.Properties;
 
 namespace AOL_Reborn.Views
 {
@@ -13,10 +17,13 @@ namespace AOL_Reborn.Views
         public BuddyListWindow()
         {
             InitializeComponent();
-            _networkService = new NetworkService();
 
-            // Properly subscribe to MessageReceived event
-            _networkService.MessageReceived += (message) =>
+            var currentUser = SessionManager.GetCurrentUser();
+            this.Title = $"{currentUser.Username}'s Buddy List Window";
+
+            // Initialize the network service and subscribe to its events
+            _networkService = new NetworkService();
+            _networkService.MessageReceived += message =>
             {
                 Dispatcher.Invoke(() =>
                 {
@@ -24,15 +31,109 @@ namespace AOL_Reborn.Views
                 });
             };
 
-            Loaded += async (s, e) => await _networkService.ConnectAsync("127.0.0.1", 5000, 5001);
+            // Connect when the window loads
+            Loaded += async (s, e) =>
+            {
+                string serverIp = Settings.Default.ServerIp;
+                int receivePort = Settings.Default.ReceivePort;
+                int sendPort = Settings.Default.SendPort;
+                await _networkService.ConnectAsync(serverIp, receivePort, sendPort);
+            };
         }
 
-        private void OpenSettingsWindow(object sender, MouseButtonEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            SettingsWindow settingsWindow = new();
-            settingsWindow.ShowDialog();
+            // Optionally load buddy groups here from your data or repository
         }
 
+        private void AddBuddyButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Prompt for buddy's username
+            string buddyUsername = Microsoft.VisualBasic.Interaction.InputBox("Enter the buddy's username:", "Add Buddy", "");
+            if (string.IsNullOrWhiteSpace(buddyUsername)) return;
+
+            using var db = new AppDbContext();
+            var friend = db.Users.FirstOrDefault(u => u.Username.Equals(buddyUsername, StringComparison.OrdinalIgnoreCase));
+            if (friend == null)
+            {
+                MessageBox.Show("User not found in the system.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // TODO: Insert logic to add to the DB (e.g., using a FriendshipRepository)
+
+            // For now, just add a TreeViewItem under the "Buddies" group in the UI:
+            var buddiesItem = BuddyTreeView.Items.OfType<TreeViewItem>()
+                .FirstOrDefault(i => i.Header.ToString().StartsWith("Buddies"));
+            if (buddiesItem != null)
+            {
+                buddiesItem.Items.Add(new TreeViewItem { Header = friend.Username });
+            }
+        }
+
+        private void RemoveBuddyButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Remove the selected buddy from the "Buddies" group
+            if (BuddyTreeView.SelectedItem is TreeViewItem selectedItem)
+            {
+                if (selectedItem.Parent is TreeViewItem parentGroup &&
+                    parentGroup.Header.ToString().StartsWith("Buddies"))
+                {
+                    parentGroup.Items.Remove(selectedItem);
+                    // TODO: Also remove from DB (using a FriendshipRepository)
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a buddy to remove.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        /// <summary>
+        /// Restarts the network service by disconnecting, re-instantiating, re-subscribing to events,
+        /// reading updated settings, and reconnecting.
+        /// </summary>
+        public async Task RestartNetworkService()
+        {
+            _networkService.Disconnect();
+            _networkService = new NetworkService();
+            _networkService.MessageReceived += message =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    Console.WriteLine($"Received message: {message}");
+                });
+            };
+            _networkService.StatusUpdated += (friendName, isOnline) =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    UpdateBuddyList(friendName, isOnline);
+                });
+            };
+            string serverIp = Settings.Default.ServerIp;
+            int receivePort = Settings.Default.ReceivePort;
+            int sendPort = Settings.Default.SendPort;
+            await _networkService.ConnectAsync(serverIp, receivePort, sendPort);
+            MessageBox.Show("Network service restarted successfully.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void UpdateBuddyList(string friendName, bool isOnline)
+        {
+            Console.WriteLine($"UpdateBuddyList: {friendName} is {(isOnline ? "online" : "offline")}");
+        }
+
+        /// <summary>
+        /// Event handler for the Restart Network button.
+        /// </summary>
+        private async void RestartNetworkButton_Click(object sender, RoutedEventArgs e)
+        {
+            await RestartNetworkService();
+        }
+
+        /// <summary>
+        /// Signs off the current user after confirming.
+        /// </summary>
         private void SignOff_Click(object sender, RoutedEventArgs e)
         {
             if (ShouldAskForSignOffConfirmation())
@@ -41,106 +142,41 @@ namespace AOL_Reborn.Views
                 if (result != MessageBoxResult.Yes)
                     return;
             }
-
             GoOffline();
             OpenLoginWindow();
         }
 
         private static bool ShouldAskForSignOffConfirmation()
         {
-            return Properties.Settings.Default.AskSignOffConfirmation;
+            return Settings.Default.AskSignOffConfirmation;
         }
 
         private static MessageBoxResult ShowSignOffConfirmation()
         {
+            // Assuming you have a SignOffConfirmationDialog implemented
             var messageBox = new SignOffConfirmationDialog();
             messageBox.ShowDialog();
-
             if (messageBox.DoNotAskAgain)
             {
-                Properties.Settings.Default.AskSignOffConfirmation = false;
-                Properties.Settings.Default.Save();
+                Settings.Default.AskSignOffConfirmation = false;
+                Settings.Default.Save();
             }
-
             return messageBox.DialogResult == true ? MessageBoxResult.Yes : MessageBoxResult.No;
         }
 
         private void GoOffline()
         {
             _networkService.SendOfflineStatus();
-
-            // Cleanup UDP client
             _networkService.Disconnect();
         }
 
         private void OpenLoginWindow()
         {
-            LoginWindow loginWindow = new();
+            LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
             this.Close();
         }
 
-        private void UpdateBuddyList(string friend, bool isOnline)
-        {
-            Dispatcher.Invoke(() =>
-            {
-                foreach (TreeViewItem group in BuddyTreeView.Items)
-                {
-                    foreach (TreeViewItem item in group.Items)
-                    {
-                        if (item.Header.ToString() == friend)
-                        {
-                            group.Items.Remove(item);
-                            break;
-                        }
-                    }
-                }
-
-                var targetGroup = isOnline ? (TreeViewItem)BuddyTreeView.Items[0] : (TreeViewItem)BuddyTreeView.Items[1];
-                targetGroup.Items.Add(new TreeViewItem { Header = friend });
-            });
-        }
-
-        private void BuddyTreeView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (BuddyTreeView.SelectedItem is TreeViewItem selectedFriend)
-            {
-                string friendName = selectedFriend.Header?.ToString() ?? string.Empty;
-                if (!string.IsNullOrEmpty(friendName))
-                {
-                    OpenChatWindow(friendName);
-                }
-            }
-        }
-
-        public async Task RestartNetworkService()
-        {
-            _networkService.Disconnect(); // Ensure we disconnect first
-            _networkService = new NetworkService(); // Create a new instance
-            _networkService.MessageReceived += (message) =>
-            {
-                Dispatcher.Invoke(() => Console.WriteLine($"Received message: {message}"));
-            };
-
-            _networkService.StatusUpdated += UpdateBuddyList;
-
-            // Read updated settings and reconnect
-            string serverIp = Properties.Settings.Default.ServerIp;
-            int receivePort = int.Parse(Properties.Settings.Default.ReceivePort.ToString());
-            int sendPort = int.Parse(Properties.Settings.Default.SendPort.ToString());
-
-            await _networkService.ConnectAsync(serverIp, receivePort, sendPort); // Now using new settings
-        }
-
-  
-        private static void OpenChatWindow(string friendName)
-        {
-            User currentUser = SessionManager.GetCurrentUser();
-            IChatService chatService = new NetworkChatService();
-            IMessageStorage messageStorage = new DatabaseMessageStorage();
-
-            ChatMainWindow chatWindow = new(currentUser, friendName, chatService, messageStorage);
-            chatWindow.Show();
-        }
+       
     }
 }

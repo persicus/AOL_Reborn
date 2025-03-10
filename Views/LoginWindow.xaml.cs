@@ -1,7 +1,5 @@
-﻿// LoginWindow.xaml.cs (Code-behind for login UI)
-using AOL_Reborn.Data;
+﻿using AOL_Reborn.Data;
 using AOL_Reborn.Models;
-using AOL_Reborn.Services;
 using AOL_Reborn.ViewModels;
 using System.IO;
 using System.Windows;
@@ -10,74 +8,141 @@ namespace AOL_Reborn.Views
 {
     public partial class LoginWindow : Window
     {
-        private static string settingsPath = Path.Combine(
+        // Path to store the last logged username
+        private static readonly string settingsDirectory = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-            "AOL_Reborn", "username.txt");
+            "AOL_Reborn"
+        );
+
+        private static readonly string settingsPath = Path.Combine(settingsDirectory, "lastuser.txt");
 
         public LoginWindow()
         {
             InitializeComponent();
-            DataContext = new LoginViewModel(); //  Bind ViewModel to the UI
-            LoadUsername();
+            DataContext = new LoginViewModel();
+            LoadUsernames();
         }
 
-        private void LoadUsername()
+        /// <summary>
+        /// Loads usernames from the database into the ComboBox, inserts "<New User>",
+        /// and selects the last logged user if found.
+        /// </summary>
+        private void LoadUsernames()
         {
             try
             {
+                // Ensure directory exists
+                if (!Directory.Exists(settingsDirectory))
+                {
+                    Directory.CreateDirectory(settingsDirectory);
+                }
+
+                using var db = new AppDbContext();
+
+                // Get sorted list of all existing usernames
+                var userNames = db.Users
+                    .Select(u => u.Username)
+                    .OrderBy(u => u)
+                    .ToList();
+
+                // Insert <New User> at the top
+                userNames.Insert(0, "<New User>");
+
+                // Set ItemsSource
+                UsernameBox.ItemsSource = userNames;
+
+                // Attempt to read the last logged user from file
+                string? lastUser = null;
                 if (File.Exists(settingsPath))
                 {
-                    string storedUsername = File.ReadAllText(settingsPath).Trim();
-                    if (!string.IsNullOrWhiteSpace(storedUsername))
-                    {
-                        ((LoginViewModel)DataContext).Username = storedUsername; //  Set ViewModel property
-                    }
+                    lastUser = File.ReadAllText(settingsPath).Trim();
+                }
+
+                // If we have a last user and it exists in the list, select it.
+                // Otherwise, default to index 0 (<New User>).
+                if (!string.IsNullOrWhiteSpace(lastUser) && userNames.Contains(lastUser))
+                {
+                    UsernameBox.SelectedItem = lastUser;
+                }
+                else
+                {
+                    UsernameBox.SelectedIndex = 0;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading username: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error loading usernames: {ex.Message}",
+                                "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        /// <summary>
+        /// Opens the network settings window so the user can change the IP and ports.
+        /// If settings are saved, the network service is restarted.
+        /// </summary>
+        // In LoginWindow.xaml.cs
+        private void NetworkSettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow settingsWindow = new SettingsWindow();
+            if (settingsWindow.ShowDialog() == true)
+            {
+                // No need to call RestartNetworkButton_Click here,
+                // because the network service is only used in BuddyListWindow.
+                // The updated settings will be used when BuddyListWindow loads.
+                MessageBox.Show("Network settings updated. They will take effect on next login.",
+                                "Settings", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
+            // The final text in the ComboBox is the typed or selected username
             string username = UsernameBox.Text.Trim();
+            string password = PasswordBox.Password; // Potentially used later
 
-            if (string.IsNullOrWhiteSpace(username))
+            // If the user left <New User> in place or typed nothing, prompt them
+            if (string.IsNullOrWhiteSpace(username) || username == "<New User>")
             {
-                MessageBox.Show("Please enter a screen name.", "Login Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Please enter a valid screen name.", "Login Error",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             using var db = new AppDbContext();
 
-            // ✅ Check if the user already exists
-            User? existingUser = db.Users.FirstOrDefault(u => u.Username == username);
+            // Check if the user already exists
+            var existingUser = db.Users.FirstOrDefault(u => u.Username == username);
 
             if (existingUser == null)
             {
-                // ✅ Create a new user if it doesn't exist
+                // Create a new user record
                 existingUser = new User
                 {
                     Username = username,
-                    DisplayName = username, // Default display name is the same as username
+                    DisplayName = username,
                     IsOnline = true
                 };
 
                 db.Users.Add(existingUser);
-                db.SaveChanges(); // ✅ This must be here to persist changes!
+                db.SaveChanges();
+            }
+            else
+            {
+                // Mark user as online if needed
+                existingUser.IsOnline = true;
+                db.SaveChanges();
             }
 
-            // ✅ Store user session
+            // Write the last logged user to file
+            File.WriteAllText(settingsPath, username);
+
+            // Store the user in the session
             SessionManager.SetCurrentUser(existingUser);
 
-            // ✅ Open the Buddy List Window
+            // Open Buddy List window
             BuddyListWindow buddyList = new BuddyListWindow();
             buddyList.Show();
             this.Close();
         }
-
-
-
     }
 }

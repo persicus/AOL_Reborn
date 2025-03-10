@@ -5,17 +5,17 @@ namespace AOL_Reborn.Models
     public class Conversation
     {
         [Key]
-        public int Id { get; set; } // Unique Conversation ID
+        public int Id { get; set; }
 
         [Required]
-        public required string ParticipantOne { get; set; } // First user in the chat
+        public string ParticipantOne { get; set; }  // Represents one user in the chat
 
         [Required]
-        public required string ParticipantTwo { get; set; } // Second user in the chat
+        public string ParticipantTwo { get; set; }  // Represents the other user in the chat
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now; // Timestamp when chat was created
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        // Navigation property for related messages
-        public List<ChatMessage> Messages { get; set; } = [];
+        // Navigation property for the messages in this conversation
+        public List<ChatMessage> Messages { get; set; } = new List<ChatMessage>();
     }
 }

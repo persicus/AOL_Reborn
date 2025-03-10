@@ -1,19 +1,16 @@
 ﻿using AOL_Reborn.Models;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace AOL_Reborn.Data
 {
     public class ChatRepository
     {
         private readonly AppDbContext _dbContext;
-        // Save a new message to the database
 
         public ChatRepository(AppDbContext dbContext)
         {
             _dbContext = dbContext;
-        }
-
-        public ChatRepository()
-        {
         }
 
         public void SaveMessage(ChatMessage message)
@@ -25,9 +22,11 @@ namespace AOL_Reborn.Data
             }
         }
 
-        public User? GetUserByUserName(string username) => _dbContext.Users.FirstOrDefault(u => u.Username == username);
+        public User? GetUserByUserName(string username)
+        {
+            return _dbContext.Users.FirstOrDefault(u => u.Username == username);
+        }
 
-        // Load all messages between two users
         public List<ChatMessage> GetMessages(string sender, string receiver)
         {
             using (var db = new AppDbContext())
@@ -40,7 +39,6 @@ namespace AOL_Reborn.Data
             }
         }
 
-        // Delete all messages between two users
         public void DeleteChatHistory(string sender, string receiver)
         {
             using (var db = new AppDbContext())
@@ -54,11 +52,12 @@ namespace AOL_Reborn.Data
                 db.SaveChanges();
             }
         }
+
+        // Retrieves an existing conversation between two users, or creates one if it doesn't exist.
         public int GetOrCreateConversationId(string user1, string user2)
         {
             using var db = new AppDbContext();
 
-            // ✅ Check if a conversation already exists between these users
             var existingConversation = db.Conversations
                 .FirstOrDefault(c =>
                     (c.ParticipantOne == user1 && c.ParticipantTwo == user2) ||
@@ -66,10 +65,9 @@ namespace AOL_Reborn.Data
 
             if (existingConversation != null)
             {
-                return existingConversation.Id; // ✅ Return existing conversation ID
+                return existingConversation.Id;
             }
 
-            // ✅ If no conversation exists, create a new one
             var newConversation = new Conversation
             {
                 ParticipantOne = user1,
@@ -78,11 +76,9 @@ namespace AOL_Reborn.Data
             };
 
             db.Conversations.Add(newConversation);
-            db.SaveChanges(); // ✅ Save the new conversation to the database
+            db.SaveChanges();
 
             return newConversation.Id;
         }
-
-
     }
 }

@@ -1,5 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
+using AOL_Reborn.Properties;
 
 namespace AOL_Reborn.Views
 {
@@ -8,40 +9,47 @@ namespace AOL_Reborn.Views
         public SettingsWindow()
         {
             InitializeComponent();
-            LoadSettings();
+            // Load current network settings into the textboxes
+            ServerIpTextBox.Text = Settings.Default.ServerIp;
+            ReceivePortTextBox.Text = Settings.Default.ReceivePort.ToString();
+            SendPortTextBox.Text = Settings.Default.SendPort.ToString();
         }
 
-        private void LoadSettings()
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            IpAddressTextBox.Text = Properties.Settings.Default.ServerIp;
-            ReceivePortTextBox.Text = Properties.Settings.Default.ReceivePort.ToString();
-            SendPortTextBox.Text = Properties.Settings.Default.SendPort.ToString();
-        }
+            // Validate and save settings
+            Settings.Default.ServerIp = ServerIpTextBox.Text.Trim();
 
-        private void SaveSettings_Click(object sender, RoutedEventArgs e)
-        {
-            Properties.Settings.Default["ServerIp"] = IpAddressTextBox.Text;
-            Properties.Settings.Default["ReceivePort"] = int.Parse(ReceivePortTextBox.Text);
-            Properties.Settings.Default["SendPort"] = int.Parse(SendPortTextBox.Text);
-            Properties.Settings.Default.Save();
-
-            // Restart the network service asynchronously
-            _ = RestartNetworkServiceAsync();
-
-            this.Close();
-        }
-
-        private static async Task RestartNetworkServiceAsync()
-        {
-            if (Application.Current.MainWindow is BuddyListWindow mainWindow)
+            if (int.TryParse(ReceivePortTextBox.Text, out int receivePort))
             {
-                await mainWindow.RestartNetworkService();
+                Settings.Default.ReceivePort = receivePort;
             }
+            else
+            {
+                MessageBox.Show("Invalid Receive Port.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (int.TryParse(SendPortTextBox.Text, out int sendPort))
+            {
+                Settings.Default.SendPort = sendPort;
+            }
+            else
+            {
+                MessageBox.Show("Invalid Send Port.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            Settings.Default.Save();
+            MessageBox.Show("Network settings saved.", "Settings", MessageBoxButton.OK, MessageBoxImage.Information);
+            this.DialogResult = true;
+            Close();
         }
 
-        private void CancelSettings_Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.DialogResult = false;
+            Close();
         }
     }
 }

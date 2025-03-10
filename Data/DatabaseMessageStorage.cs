@@ -28,18 +28,16 @@ public class DatabaseMessageStorage : IMessageStorage
     {
         using (var db = new AppDbContext())
         {
-            //  Ensure we get the correct conversation first
             var conversation = db.Conversations
                 .FirstOrDefault(c =>
                     (c.ParticipantOne == sender && c.ParticipantTwo == receiver) ||
                     (c.ParticipantOne == receiver && c.ParticipantTwo == sender));
 
             if (conversation == null)
-                return new List<ChatMessage>(); // No conversation exists yet
+                return new List<ChatMessage>();
 
-            // Now fetch messages using ConversationId
             return db.Messages
-                .Where(m => m.ConversationId == conversation.Id) // Correct filtering
+                .Where(m => m.ConversationId == conversation.Id)
                 .OrderBy(m => m.Timestamp)
                 .ToList();
         }

@@ -18,6 +18,7 @@
             Background="#D4D0C8"
             BorderBrush="#808080"
             BorderThickness="2">
+
             <StackPanel>
                 <!--  AIM Logo  -->
                 <Image
@@ -42,26 +43,49 @@
                     Margin="0,5,0,10"
                     Fill="#808080" />
 
-                <!--  Username Dropdown  -->
+                <!--  Screen Name Label  -->
                 <TextBlock
                     Margin="0,0,0,5"
                     FontWeight="Bold"
                     Text="Screen Name:" />
+
+                <!--  Username Dropdown  -->
                 <ComboBox
                     x:Name="UsernameBox"
-                    Width="280"
+                    Width="250"
                     Height="25"
-                    Margin="0,0,0,10"
-                    IsEditable="True" />
+                    Margin="0,0,0,5"
+                    IsEditable="True"
+                    IsReadOnly="False"
+                    MaxDropDownHeight="100"
+                    StaysOpenOnEdit="True">
+                    <ComboBox.ItemsPanel>
+                        <!--  Ensures virtualization if many usernames  -->
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>
 
-                <!--  Password Field  -->
+                <!--  Forgot Password Link  -->
+                <TextBlock
+                    Margin="0,0,0,10"
+                    HorizontalAlignment="Left"
+                    Cursor="Hand"
+                    Foreground="Blue"
+                    Text="Forgot Password?"
+                    TextDecorations="Underline" />
+
+                <!--  Password Label  -->
                 <TextBlock
                     Margin="0,0,0,5"
                     FontWeight="Bold"
                     Text="Password:" />
+
+                <!--  Password Field  -->
                 <PasswordBox
                     x:Name="PasswordBox"
-                    Width="280"
+                    Width="250"
                     Height="25"
                     Margin="0,0,0,10" />
 
@@ -74,19 +98,49 @@
                     <CheckBox x:Name="AutoLoginCheckBox" Content="Auto-login" />
                 </StackPanel>
 
-                <!--  Sign On Button  -->
-                <Button
-                    Width="120"
-                    Height="35"
+                <!--  Buttons (Help, Setup, Sign On)  -->
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button
+                        x:Name="HelpButton"
+                        Width="60"
+                        Height="25"
+                        Margin="0,0,10,0"
+                        Background="#C0C0C0"
+                        BorderBrush="#808080"
+                        BorderThickness="2"
+                        Content="Help" />
+
+                    <Button
+                        x:Name="SetupButton"
+                        Width="60"
+                        Height="25"
+                        Margin="0,0,10,0"
+                        Background="#C0C0C0"
+                        BorderBrush="#808080"
+                        BorderThickness="2"
+                        Click="NetworkSettingsButton_Click"
+                        Content="Setup" />
+
+                    <Button
+                        Width="60"
+                        Height="25"
+                        Background="#C0C0C0"
+                        BorderBrush="#808080"
+                        BorderThickness="2"
+                        Click="SignInButton_Click"
+                        Content="Sign On"
+                        FontSize="12"
+                        FontWeight="Bold"
+                        Foreground="Green" />
+                </StackPanel>
+
+                <!--  Version Text  -->
+                <TextBlock
+                    Margin="0,10,0,0"
                     HorizontalAlignment="Center"
-                    Background="#C0C0C0"
-                    BorderBrush="#808080"
-                    BorderThickness="2"
-                    Click="SignInButton_Click"
-                    Content="Sign On"
-                    FontSize="14"
-                    FontWeight="Bold"
-                    Foreground="Green" />
+                    FontSize="10"
+                    Foreground="Gray"
+                    Text="Version: 4.8.2016" />
             </StackPanel>
         </Border>
     </Grid>

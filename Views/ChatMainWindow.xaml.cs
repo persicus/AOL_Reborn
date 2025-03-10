@@ -55,19 +55,21 @@ namespace AOL_Reborn.Views
             if (!string.IsNullOrWhiteSpace(MessageInput.Text))
             {
                 using var db = new AppDbContext();
-                ChatRepository chatRepo = new ChatRepository();
+                // Pass the AppDbContext instance to the ChatRepository constructor
+                ChatRepository chatRepo = new ChatRepository(db);
                 int conversationId = chatRepo.GetOrCreateConversationId(_currentUser.Username, _chatPartner);
 
                 var newMessage = ChatMessage.Create(_currentUser.Username, _chatPartner, MessageInput.Text, conversationId);
 
                 db.Messages.Add(newMessage);
-                db.SaveChanges(); // ✅ This ensures messages are saved!
+                db.SaveChanges(); // Save the message to the database
 
                 Messages.Add(newMessage);
                 await _chatService.SendMessageAsync(newMessage.Message);
                 MessageInput.Clear();
             }
         }
+
 
         private void DeleteChatHistory_Click(object sender, RoutedEventArgs e)
         {
