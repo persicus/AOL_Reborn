@@ -21,17 +21,32 @@ namespace AOL_Reborn.Services
         {
             try
             {
-                Disconnect(); // Ensures old connection is properly closed before reconnecting
-                _udpClient = new UdpClient(receivePort);
+                Disconnect(); // Ensure old connection is closed
+
+                // Create a new UdpClient instance
+                _udpClient = new UdpClient();
+
+                // Allow socket address reuse
+                _udpClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+                // Disable exclusive address use
+                _udpClient.Client.ExclusiveAddressUse = false;
+
+                // Bind the client to the local receive port
+                _udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, receivePort));
+
+                // Set up the remote endpoint using the provided server and sendPort
                 _remoteEndPoint = new IPEndPoint(IPAddress.Parse(server), sendPort);
 
-                await StartListening(); //Ensures proper async execution
+                // Begin asynchronous listening for incoming messages
+                await StartListening();
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error connecting: {ex.Message}");
             }
         }
+
+
 
         public void Disconnect()
         {

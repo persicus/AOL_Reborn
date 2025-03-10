@@ -174,3 +174,5 @@ D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\refint\AOL_Reborn.dll
 D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\AOL_Reborn.pdb
 D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\AOL_Reborn.genruntimeconfig.cache
 D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\ref\AOL_Reborn.dll
+D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\AOL_Reborn_MarkupCompile.lref

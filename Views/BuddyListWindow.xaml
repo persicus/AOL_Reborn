@@ -18,12 +18,12 @@
             <RowDefinition Height="*" />
             <!--  Main content (tabs)  -->
             <RowDefinition Height="Auto" />
-            <!--  Bottom icons  -->
+            <!--  Bottom icons row  -->
             <RowDefinition Height="Auto" />
             <!--  Status bar  -->
         </Grid.RowDefinitions>
 
-        <!--  Top Menu Bar using a DockPanel to align items left and right  -->
+        <!--  Top Menu Bar using a DockPanel  -->
         <DockPanel Grid.Row="0" Background="#E0E0E0">
             <!--  Left-aligned Menu  -->
             <Menu DockPanel.Dock="Left">
@@ -33,7 +33,6 @@
                 <MenuItem Header="People" />
                 <MenuItem Header="Help" />
             </Menu>
-            <!--  Right-aligned Network Settings Button  -->
         </DockPanel>
 
         <!--  AIM Logo Row  -->
@@ -57,11 +56,15 @@
             <!--  Online Tab  -->
             <TabItem Header="Online">
                 <Grid Background="#FFFFFF">
-                    <TreeView x:Name="BuddyTreeView" Margin="5">
-                        <TreeViewItem Header="Buddies (0/0)" IsExpanded="True" />
-                        <TreeViewItem Header="Family (0/0)" IsExpanded="False" />
-                        <TreeViewItem Header="Co-Workers (0/0)" IsExpanded="False" />
-                        <TreeViewItem Header="Offline (0/0)" IsExpanded="False" />
+                    <TreeView
+                        x:Name="BuddyTreeView"
+                        Margin="5"
+                        MouseDoubleClick="BuddyTreeView_MouseDoubleClick">
+                        <!--  Initial static groups; their headers will be updated in code  -->
+                        <TreeViewItem Header="Buddies (0)" IsExpanded="True" />
+                        <TreeViewItem Header="Family (0)" IsExpanded="True" />
+                        <TreeViewItem Header="Co-Workers (0)" IsExpanded="True" />
+                        <TreeViewItem Header="Offline (0)" IsExpanded="True" />
                     </TreeView>
                 </Grid>
             </TabItem>
@@ -118,7 +121,6 @@
                 ToolTip="Remove Buddy">
                 <Image Source="/Assets/Wrench_Icon.png" Stretch="Uniform" />
             </Button>
-
         </StackPanel>
 
         <!--  Status Bar  -->
