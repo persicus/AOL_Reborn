@@ -1,14 +1,10 @@
-﻿using System;
+﻿using AOL_Reborn.Data;
+using AOL_Reborn.Models;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
-using AOL_Reborn.Data;
-using AOL_Reborn.Models;
-using AOL_Reborn.Services;
-using System.Threading.Tasks;
 
 namespace AOL_Reborn.Views
 {
@@ -20,12 +16,13 @@ namespace AOL_Reborn.Views
         private string _chatPartner;
         public ObservableCollection<ChatMessage> Messages { get; set; } = new ObservableCollection<ChatMessage>();
 
-        public ChatMainWindow(User currentUser, string chatPartner, IChatService chatService, IMessageStorage messageStorage)
+        public ChatMainWindow(User currentUser, string chatPartner, IMessageStorage messageStorage)
         {
             InitializeComponent();
             this.Title = $"Chat with {chatPartner}";
 
-            _chatService = chatService;
+            // Use the shared instance of NetworkChatService
+            _chatService = NetworkChatService.Instance;
             _messageStorage = messageStorage;
             _currentUser = currentUser;
             _chatPartner = chatPartner;
@@ -41,11 +38,10 @@ namespace AOL_Reborn.Views
             // Auto-scroll: scroll to bottom when a new message is added.
             Messages.CollectionChanged += Messages_CollectionChanged;
 
-            // Auto-scroll when the window is loaded so the user sees the latest messages.
+            // Auto-scroll on window loaded
             this.Loaded += (s, e) => ChatScrollViewer.ScrollToBottom();
 
-            // Subscribe to incoming messages (if using a real chat service)
-            // For mock users, we rely solely on simulated auto-replies.
+            // Subscribe to incoming messages (for non-mock users)
             _chatService.MessageReceived += message =>
             {
                 Dispatcher.Invoke(() =>
@@ -60,7 +56,7 @@ namespace AOL_Reborn.Views
                 });
             };
 
-            // Connect to the chat service.
+            // Connect once (if not already connected)
             _chatService.ConnectAsync("127.0.0.1", 5001, 5000);
         }
 
@@ -89,7 +85,7 @@ namespace AOL_Reborn.Views
                 string userMessage = MessageInput.Text;
                 MessageInput.Clear();
 
-                // If using mock users, simulate an auto-reply after a delay.
+                // For mock users, simulate an auto-reply after a delay.
                 if (IsMockUser(_chatPartner))
                 {
                     await Task.Delay(1000);

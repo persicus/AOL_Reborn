@@ -253,11 +253,12 @@ namespace AOL_Reborn.Views
             var currentUser = SessionManager.GetCurrentUser();
 
             // Create or retrieve IChatService and IMessageStorage instances
-            IChatService chatService = new NetworkChatService();
+            IChatService chatService = NetworkChatService.Instance;
             IMessageStorage messageStorage = new DatabaseMessageStorage();
 
             // Instantiate and show the ChatMainWindow
-            ChatMainWindow chatWindow = new ChatMainWindow(currentUser, friendName, chatService, messageStorage);
+            // New code using the shared instance and 3-parameter constructor:
+            ChatMainWindow chatWindow = new ChatMainWindow(currentUser, friendName, messageStorage);
             chatWindow.Show();
         }
     }
