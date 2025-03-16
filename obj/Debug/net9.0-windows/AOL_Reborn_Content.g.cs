@@ -8,6 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/help_normal.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/help_shaded.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/setup_normal.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/setup_shaded.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/signon_shaded.png")]
 
 

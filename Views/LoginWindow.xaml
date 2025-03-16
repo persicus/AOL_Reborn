@@ -6,14 +6,14 @@
     Width="240"
     Height="500"
     AllowsTransparency="False"
-    Background="#D4D0C8"
+    Background="Transparent"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None">
 
     <!--  Define resources at the Window level  -->
     <Window.Resources>
-        <!--  Existing style for image-swap buttons (used for Help/Setup, if needed)  -->
+        <!--  Existing style for image-swap buttons (if needed elsewhere)  -->
         <Style x:Key="ImageSwapButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="0" />
@@ -38,7 +38,7 @@
             </Setter>
         </Style>
 
-        <!--  New Style for the Sign On button  -->
+        <!--  New style for the Sign On button  -->
         <Style x:Key="SignOnButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="40" />
             <Setter Property="Height" Value="60" />
@@ -69,27 +69,91 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <!--  New style for the Setup button  -->
+        <Style x:Key="SetupButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="60" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                            <Image
+                                x:Name="SetupImage"
+                                Width="40"
+                                Height="40"
+                                Source="/Assets/Setup_Normal.png"
+                                Stretch="Uniform" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="10"
+                                Foreground="Black"
+                                Text="Setup" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="SetupImage" Property="Source" Value="/Assets/Setup_Shaded.png" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  New style for the Help button  -->
+        <Style x:Key="HelpButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="60" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                            <Image
+                                x:Name="HelpImage"
+                                Width="40"
+                                Height="40"
+                                Source="/Assets/Help_Normal.png"
+                                Stretch="Uniform" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="10"
+                                Foreground="Black"
+                                Text="Help" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="HelpImage" Property="Source" Value="/Assets/Help_Shaded.png" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
     <!--  Outer Border for rounded corners  -->
     <Border
         Background="WhiteSmoke"
         BorderBrush="WhiteSmoke"
-        BorderThickness="2"
+        BorderThickness="0"
         CornerRadius="10">
         <Grid>
             <Grid.RowDefinitions>
                 <!--  Row 0: Custom Title Bar  -->
                 <RowDefinition Height="40" />
-                <!--  Row 1: The rest of the Login UI  -->
+                <!--  Row 1: Login UI  -->
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <!--  Custom Title Bar  -->
             <Border
                 Grid.Row="0"
-                CornerRadius="10,10,10,10"
                 Background="WhiteSmoke"
+                CornerRadius="15,15,15,15"
                 MouseLeftButtonDown="CustomTitleBar_MouseLeftButtonDown">
                 <Grid>
                     <!--  Left side: Buddy icon and title text  -->
@@ -132,6 +196,12 @@
                             Content="X"
                             Foreground="Black" />
                     </StackPanel>
+                    <!--  Horizontal Separator Line below the title bar  -->
+                    <Rectangle
+                        Height="1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Bottom"
+                        Fill="LightGray" />
                 </Grid>
             </Border>
 
@@ -139,6 +209,8 @@
             <Border Grid.Row="1" Padding="10">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <!--  New horizontal separator above the main logo  -->
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <!--  Main Logo  -->
                         <RowDefinition Height="Auto" />
@@ -148,11 +220,11 @@
                         <RowDefinition Height="Auto" />
                         <!--  Username ComboBox  -->
                         <RowDefinition Height="Auto" />
-                        <!--  Forgot Password Link  -->
-                        <RowDefinition Height="Auto" />
                         <!--  Password Label  -->
                         <RowDefinition Height="Auto" />
                         <!--  Password Field  -->
+                        <RowDefinition Height="Auto" />
+                        <!--  Forgot Password Link  -->
                         <RowDefinition Height="Auto" />
                         <!--  CheckBoxes  -->
                         <RowDefinition Height="Auto" />
@@ -161,22 +233,26 @@
                         <!--  Version Text  -->
                     </Grid.RowDefinitions>
 
+                    <!--  New separator line above the main logo  -->
+
                     <!--  Main Logo  -->
                     <Image
-                        Grid.Row="0"
+                        Grid.Row="1"
+                        Margin="0,5,0,10"
                         HorizontalAlignment="Center"
                         Source="/Assets/LoginWindowMainLogo.png" />
 
-                    <!--  Separator Line  -->
+                    <!--  Existing Separator Line  -->
                     <Rectangle
-                        Grid.Row="1"
+                        Grid.Row="2"
+                        Grid.RowSpan="2"
                         Height="2"
-                        Margin="0,5,0,10"
-                        Fill="#808080" />
+                        Margin="-3,0,-3,16"
+                        Fill="LightGray" />
 
                     <!--  ScreenName row: label and red key icon  -->
                     <StackPanel
-                        Grid.Row="2"
+                        Grid.Row="3"
                         HorizontalAlignment="Left"
                         Orientation="Horizontal">
                         <TextBlock
@@ -194,7 +270,7 @@
                     <!--  Username ComboBox  -->
                     <ComboBox
                         x:Name="UsernameBox"
-                        Grid.Row="3"
+                        Grid.Row="4"
                         Width="200"
                         Height="20"
                         Margin="0,0,0,10"
@@ -209,16 +285,6 @@
                             </ItemsPanelTemplate>
                         </ComboBox.ItemsPanel>
                     </ComboBox>
-
-                    <!--  Forgot Password Link  -->
-                    <TextBlock
-                        Grid.Row="4"
-                        Margin="0,0,0,10"
-                        HorizontalAlignment="Left"
-                        Cursor="Hand"
-                        Foreground="Blue"
-                        Text="Forgot Password?"
-                        TextDecorations="Underline" />
 
                     <!--  Password Label  -->
                     <TextBlock
@@ -237,9 +303,19 @@
                         Margin="0,0,0,10"
                         HorizontalAlignment="Left" />
 
+                    <!--  Forgot Password Link (moved under the password field)  -->
+                    <TextBlock
+                        Grid.Row="7"
+                        Margin="0,0,0,10"
+                        HorizontalAlignment="Left"
+                        Cursor="Hand"
+                        Foreground="Blue"
+                        Text="Forgot Password?"
+                        TextDecorations="Underline" />
+
                     <!--  Save Password & Auto-login Options  -->
                     <StackPanel
-                        Grid.Row="7"
+                        Grid.Row="8"
                         Margin="0,0,0,10"
                         HorizontalAlignment="Left"
                         Orientation="Horizontal">
@@ -250,35 +326,41 @@
                         <CheckBox x:Name="AutoLoginCheckBox" Content="Auto-login" />
                     </StackPanel>
 
-                    <!--  Buttons  -->
-                    <StackPanel
-                        Grid.Row="8"
-                        HorizontalAlignment="Center"
-                        Orientation="Horizontal">
-                        <Button
-                            x:Name="HelpButton"
-                            Margin="0,0,10,0"
-                            Click="HelpButton_Click"
-                            Content="/Assets/Help_Shaded.png"
-                            Style="{StaticResource ImageSwapButtonStyle}"
-                            Tag="/Assets/Help_Normal.png" />
-                        <Button
-                            x:Name="SetupButton"
-                            Margin="0,0,10,0"
-                            Click="NetworkSettingsButton_Click"
-                            Content="/Assets/Setup_Shaded.png"
-                            Style="{StaticResource ImageSwapButtonStyle}"
-                            Tag="/Assets/Setup_Normal.png" />
-                        <!--  Sign On Button using the new style  -->
+                    <!--  Buttons Area  -->
+                    <Grid Grid.Row="9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <!--  Left group: Help and Setup  -->
+                            <ColumnDefinition Width="20" />
+                            <!--  Gap  -->
+                            <ColumnDefinition Width="*" />
+                            <!--  Right group: Sign On  -->
+                        </Grid.ColumnDefinitions>
+                        <!--  Left Group: Help and Setup buttons  -->
+                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                            <Button
+                                x:Name="HelpButton"
+                                Margin="0,0,10,0"
+                                Click="HelpButton_Click"
+                                Style="{StaticResource HelpButtonStyle}" />
+                            <Button
+                                x:Name="SetupButton"
+                                Margin="0,0,10,0"
+                                Click="NetworkSettingsButton_Click"
+                                Style="{StaticResource SetupButtonStyle}" />
+                        </StackPanel>
+                        <!--  Right Group: Sign On button, justified to the right  -->
                         <Button
                             x:Name="SignOnButton"
+                            Grid.Column="2"
+                            HorizontalAlignment="Right"
                             Click="SignInButton_Click"
                             Style="{StaticResource SignOnButtonStyle}" />
-                    </StackPanel>
+                    </Grid>
 
                     <!--  Version Text  -->
                     <TextBlock
-                        Grid.Row="9"
+                        Grid.Row="10"
                         Margin="0,10,0,0"
                         HorizontalAlignment="Center"
                         FontSize="10"

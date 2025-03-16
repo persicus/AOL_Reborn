@@ -312,3 +312,7 @@ D:\ELUM-i3\AOL_App\AOL_Reborn\obj\Debug\net9.0-windows\refint\AOL_Reborn.dll
 D:\ELUM-i3\AOL_App\AOL_Reborn\obj\Debug\net9.0-windows\AOL_Reborn.pdb
 D:\ELUM-i3\AOL_App\AOL_Reborn\obj\Debug\net9.0-windows\AOL_Reborn.genruntimeconfig.cache
 D:\ELUM-i3\AOL_App\AOL_Reborn\obj\Debug\net9.0-windows\ref\AOL_Reborn.dll
+D:\ELUM-i3\AOL_App\AOL_Reborn\bin\Debug\net9.0-windows\Assets\Setup_Normal.png
+D:\ELUM-i3\AOL_App\AOL_Reborn\bin\Debug\net9.0-windows\Assets\Setup_Shaded.png
+D:\ELUM-i3\AOL_App\AOL_Reborn\bin\Debug\net9.0-windows\Assets\Help_Normal.png
+D:\ELUM-i3\AOL_App\AOL_Reborn\bin\Debug\net9.0-windows\Assets\Help_Shaded.png

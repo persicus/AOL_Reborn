@@ -46,8 +46,6 @@ namespace AOL_Reborn.Services
             }
         }
 
-
-
         public void Disconnect()
         {
             if (_udpClient != null)

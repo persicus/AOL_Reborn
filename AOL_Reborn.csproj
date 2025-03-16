@@ -22,8 +22,12 @@
     <None Remove="Assets\AIM_Logo.png" />
     <None Remove="Assets\AOL_Logo.jpeg" />
     <None Remove="Assets\BuddyIcon.ico" />
+    <None Remove="Assets\Help_Normal.png" />
+    <None Remove="Assets\Help_Shaded.png" />
     <None Remove="Assets\LoginWindowMainLogo.png" />
     <None Remove="Assets\RedKey.png" />
+    <None Remove="Assets\Setup_Normal.png" />
+    <None Remove="Assets\Setup_Shaded.png" />
     <None Remove="Assets\SignOn_Normal.png" />
     <None Remove="Assets\SignOn_Shaded.png" />
     <None Remove="Assets\wrench_icon.png" />
@@ -33,6 +37,18 @@
     <Resource Include="Assets\SignOn_Normal.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Assets\Help_Normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Help_Shaded.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Setup_Normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Setup_Shaded.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\SignOn_Shaded.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
