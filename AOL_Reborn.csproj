@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseWindowsForms>True</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,12 +21,42 @@
     <None Remove="Assets\AIM_Logo.jpeg" />
     <None Remove="Assets\AIM_Logo.png" />
     <None Remove="Assets\AOL_Logo.jpeg" />
+    <None Remove="Assets\BuddyIcon.ico" />
+    <None Remove="Assets\LoginWindowMainLogo.png" />
+    <None Remove="Assets\RedKey.png" />
+    <None Remove="Assets\SignOn_Normal.png" />
+    <None Remove="Assets\SignOn_Shaded.png" />
     <None Remove="Assets\wrench_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\AIM_Logo.png" />
-    <Resource Include="Assets\Wrench_Icon.png" />
+    <Resource Include="Assets\SignOn_Normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Assets\SignOn_Shaded.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\BuddyIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\AIM_Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\LoginWindowMainLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\RedKey.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Wrench_Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

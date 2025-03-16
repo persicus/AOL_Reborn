@@ -1,15 +1,14 @@
-﻿using AOL_Reborn.Data;
-using AOL_Reborn.Services;
-using Microsoft.Extensions.DependencyInjection;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Windows;
+using AOL_Reborn.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AOL_Reborn
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App
     {
         public static ServiceProvider? ServiceProvider { get; private set; }
 

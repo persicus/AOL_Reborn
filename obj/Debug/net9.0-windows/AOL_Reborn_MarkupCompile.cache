@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\AOL_Reborn_Chat\AOL_Reborn\obj\Debug\net9.0-windows\
+D:\ELUM-i3\AOL_App\AOL_Reborn\obj\Debug\net9.0-windows\
 AOL_Reborn
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP
-D:\AOL_Reborn_Chat\AOL_Reborn\App.xaml
+D:\ELUM-i3\AOL_App\AOL_Reborn\App.xaml
 5-1769267388
-
+1-351519222
 3331465790
-2191160526852
+229-1532301327
 Views\BuddyListWindow.xaml;Views\ChatMainWindow.xaml;Views\LoginWindow.xaml;Views\SettingsWindow.xaml;Views\SignOffConfirmationDialog.xaml;
 
 False

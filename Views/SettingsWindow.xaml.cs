@@ -1,6 +1,6 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using AOL_Reborn.Properties;
+using WpfMessageBox = System.Windows.MessageBox;
 
 namespace AOL_Reborn.Views
 {
@@ -26,7 +26,7 @@ namespace AOL_Reborn.Views
             }
             else
             {
-                MessageBox.Show("Invalid Receive Port.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                WpfMessageBox.Show("Invalid Receive Port.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -36,12 +36,12 @@ namespace AOL_Reborn.Views
             }
             else
             {
-                MessageBox.Show("Invalid Send Port.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                WpfMessageBox.Show("Invalid Send Port.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
             Settings.Default.Save();
-            MessageBox.Show("Network settings saved.", "Settings", MessageBoxButton.OK, MessageBoxImage.Information);
+            WpfMessageBox.Show("Network settings saved.", "Settings", MessageBoxButton.OK, MessageBoxImage.Information);
             this.DialogResult = true;
             Close();
         }

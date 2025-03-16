@@ -1,13 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using AOL_Reborn.Data;
 using AOL_Reborn.Models;
-using AOL_Reborn.Services;
 using AOL_Reborn.Properties;
+using AOL_Reborn.Services;
+using WpfMessageBox = System.Windows.MessageBox;
 
 namespace AOL_Reborn.Views
 {
@@ -60,7 +58,7 @@ namespace AOL_Reborn.Views
             var friend = db.Users.FirstOrDefault(u => u.Username.ToLower() == buddyUsername.ToLower());
             if (friend == null)
             {
-                MessageBox.Show("User not found in the system.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                WpfMessageBox.Show("User not found in the system.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -83,7 +81,7 @@ namespace AOL_Reborn.Views
             }
             else
             {
-                MessageBox.Show("Please select a buddy to remove.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                WpfMessageBox.Show("Please select a buddy to remove.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -107,7 +105,7 @@ namespace AOL_Reborn.Views
             int receivePort = Settings.Default.ReceivePort;
             int sendPort = Settings.Default.SendPort;
             await _networkService.ConnectAsync(serverIp, receivePort, sendPort);
-            MessageBox.Show("Network service restarted successfully.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            WpfMessageBox.Show("Network service restarted successfully.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void UpdateBuddyList(string friendName, bool isOnline)

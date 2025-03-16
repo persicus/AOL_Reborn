@@ -1,117 +1,121 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\",
+  "WorkspaceRootPath": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\views\\buddylistwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\buddylistwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\views\\buddylistwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\buddylistwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\views\\chatmainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\chatmainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\services\\networkchatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:services\\networkchatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\services\\networkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\services\\networkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:services\\networkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\services\\networkmanagerbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\services\\networkmanagerbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:services\\networkmanagerbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\services\\ichatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\services\\networkchatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:services\\networkchatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\services\\ichatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:services\\ichatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\views\\chatmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\chatmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\views\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\views\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\viewmodels\\buddylistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:viewmodels\\buddylistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\views\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\views\\signoffconfirmationdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\signoffconfirmationdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\viewmodels\\chatboxviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:viewmodels\\chatboxviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\data\\chatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:data\\chatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\data\\databasemessagestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:data\\databasemessagestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\models\\conversation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:models\\conversation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\services\\sessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:services\\sessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\data\\imessagestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:data\\imessagestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\models\\conversation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:models\\conversation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\models\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\models\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:models\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\aol_reborn.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:aol_reborn.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\data\\imessagestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:data\\imessagestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\data\\databasemessagestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:data\\databasemessagestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\views\\signoffconfirmationdialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\data\\chatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:data\\chatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\views\\chatmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\chatmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\views\\buddylistwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\buddylistwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\views\\buddylistwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\buddylistwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\views\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\views\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\settingswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\views\\signoffconfirmationdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\signoffconfirmationdialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\views\\signoffconfirmationdialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\signoffconfirmationdialog.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\aol_reborn_chat\\aol_reborn\\properties\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\views\\chatmainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\chatmainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\aol_reborn.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:aol_reborn.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\aol_reborn.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:aol_reborn.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\views\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:views\\settingswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\viewmodels\\buddylistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:viewmodels\\buddylistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\viewmodels\\chatboxviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:viewmodels\\chatboxviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\services\\sessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:services\\sessionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|d:\\elum-i3\\aol_app\\aol_reborn\\properties\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{699336F1-C847-466E-941F-39C6A472D641}|AOL_Reborn.csproj|solutionrelative:properties\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -122,7 +126,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -130,88 +134,89 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NetworkChatService.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Services\\NetworkChatService.cs",
-              "RelativeDocumentMoniker": "Services\\NetworkChatService.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Services\\NetworkChatService.cs",
-              "RelativeToolTip": "Services\\NetworkChatService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAIAwwAwAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "ChatRepository.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Data\\ChatRepository.cs",
+              "RelativeDocumentMoniker": "Data\\ChatRepository.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Data\\ChatRepository.cs",
+              "RelativeToolTip": "Data\\ChatRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T01:08:45.018Z",
+              "WhenOpened": "2025-03-10T00:25:24.08Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "NetworkManagerBase.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Services\\NetworkManagerBase.cs",
-              "RelativeDocumentMoniker": "Services\\NetworkManagerBase.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Services\\NetworkManagerBase.cs",
-              "RelativeToolTip": "Services\\NetworkManagerBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "DatabaseMessageStorage.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Data\\DatabaseMessageStorage.cs",
+              "RelativeDocumentMoniker": "Data\\DatabaseMessageStorage.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Data\\DatabaseMessageStorage.cs",
+              "RelativeToolTip": "Data\\DatabaseMessageStorage.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAIwAMAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T09:51:03.256Z",
+              "WhenOpened": "2025-03-10T01:07:33.854Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ChatMainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\ChatMainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\ChatMainWindow.xaml.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\ChatMainWindow.xaml.cs",
-              "RelativeToolTip": "Views\\ChatMainWindow.xaml.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowAYAAAAaAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "IMessageStorage.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Data\\IMessageStorage.cs",
+              "RelativeDocumentMoniker": "Data\\IMessageStorage.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Data\\IMessageStorage.cs",
+              "RelativeToolTip": "Data\\IMessageStorage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T08:27:45.004Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BuddyListWindow.xaml",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\BuddyListWindow.xaml",
-              "RelativeDocumentMoniker": "Views\\BuddyListWindow.xaml",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\BuddyListWindow.xaml",
-              "RelativeToolTip": "Views\\BuddyListWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-09T00:51:22.071Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BuddyListWindow.xaml.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\BuddyListWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\BuddyListWindow.xaml.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\BuddyListWindow.xaml.cs",
-              "RelativeToolTip": "Views\\BuddyListWindow.xaml.cs",
-              "ViewState": "AgIAAPEAAAAAAAAAAAAwwP4AAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T00:51:37.841Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NetworkService.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Services\\NetworkService.cs",
-              "RelativeDocumentMoniker": "Services\\NetworkService.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Services\\NetworkService.cs",
-              "RelativeToolTip": "Services\\NetworkService.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAowBoAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T08:40:59.234Z",
+              "WhenOpened": "2025-03-10T01:06:55.807Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "ChatMessage.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Models\\ChatMessage.cs",
+              "RelativeDocumentMoniker": "Models\\ChatMessage.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Models\\ChatMessage.cs",
+              "RelativeToolTip": "Models\\ChatMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T04:27:01.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Conversation.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Models\\Conversation.cs",
+              "RelativeDocumentMoniker": "Models\\Conversation.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Models\\Conversation.cs",
+              "RelativeToolTip": "Models\\Conversation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T02:52:44.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T02:51:14.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "IChatService.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Services\\IChatService.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Services\\IChatService.cs",
               "RelativeDocumentMoniker": "Services\\IChatService.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Services\\IChatService.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Services\\IChatService.cs",
               "RelativeToolTip": "Services\\IChatService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -220,57 +225,63 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NetworkChatService.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Services\\NetworkChatService.cs",
+              "RelativeDocumentMoniker": "Services\\NetworkChatService.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Services\\NetworkChatService.cs",
+              "RelativeToolTip": "Services\\NetworkChatService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T01:08:45.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NetworkManagerBase.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Services\\NetworkManagerBase.cs",
+              "RelativeDocumentMoniker": "Services\\NetworkManagerBase.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Services\\NetworkManagerBase.cs",
+              "RelativeToolTip": "Services\\NetworkManagerBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T09:51:03.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NetworkService.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Services\\NetworkService.cs",
+              "RelativeDocumentMoniker": "Services\\NetworkService.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Services\\NetworkService.cs",
+              "RelativeToolTip": "Services\\NetworkService.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAwwA4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T08:40:59.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T22:40:10.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "LoginWindow.xaml.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\LoginWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\LoginWindow.xaml.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\LoginWindow.xaml.cs",
-              "RelativeToolTip": "Views\\LoginWindow.xaml.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAIwI0AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T08:39:55.455Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "LoginWindow.xaml",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\LoginWindow.xaml",
-              "RelativeDocumentMoniker": "Views\\LoginWindow.xaml",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\LoginWindow.xaml",
-              "RelativeToolTip": "Views\\LoginWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-28T08:37:40.563Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SettingsWindow.xaml",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\SettingsWindow.xaml",
-              "RelativeDocumentMoniker": "Views\\SettingsWindow.xaml",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\SettingsWindow.xaml",
-              "RelativeToolTip": "Views\\SettingsWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-09T20:16:38.816Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "SettingsWindow.xaml.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\SettingsWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\SettingsWindow.xaml.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\SettingsWindow.xaml.cs",
-              "RelativeToolTip": "Views\\SettingsWindow.xaml.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAoAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T20:19:28.985Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "ChatMainWindow.xaml",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\ChatMainWindow.xaml",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\ChatMainWindow.xaml",
               "RelativeDocumentMoniker": "Views\\ChatMainWindow.xaml",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\ChatMainWindow.xaml",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\ChatMainWindow.xaml",
               "RelativeToolTip": "Views\\ChatMainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-02-28T08:27:49.747Z",
@@ -278,22 +289,162 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "SignOffConfirmationDialog.xaml",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\SignOffConfirmationDialog.xaml",
-              "RelativeDocumentMoniker": "Views\\SignOffConfirmationDialog.xaml",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\SignOffConfirmationDialog.xaml",
-              "RelativeToolTip": "Views\\SignOffConfirmationDialog.xaml",
+              "DocumentIndex": 12,
+              "Title": "BuddyListWindow.xaml",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\BuddyListWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\BuddyListWindow.xaml",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\BuddyListWindow.xaml",
+              "RelativeToolTip": "Views\\BuddyListWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-09T01:02:54.131Z"
+              "WhenOpened": "2025-03-09T00:51:22.071Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
+              "Title": "LoginWindow.xaml.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\LoginWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\LoginWindow.xaml.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\LoginWindow.xaml.cs",
+              "RelativeToolTip": "Views\\LoginWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T08:39:55.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "BuddyListWindow.xaml.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\BuddyListWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\BuddyListWindow.xaml.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\BuddyListWindow.xaml.cs",
+              "RelativeToolTip": "Views\\BuddyListWindow.xaml.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAwwG0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T00:51:37.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LoginWindow.xaml",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\LoginWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\LoginWindow.xaml",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\LoginWindow.xaml",
+              "RelativeToolTip": "Views\\LoginWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-28T08:37:40.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SignOffConfirmationDialog.xaml",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\SignOffConfirmationDialog.xaml",
+              "RelativeDocumentMoniker": "Views\\SignOffConfirmationDialog.xaml",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\SignOffConfirmationDialog.xaml",
+              "RelativeToolTip": "Views\\SignOffConfirmationDialog.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-09T01:02:54.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SignOffConfirmationDialog.xaml.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\SignOffConfirmationDialog.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\SignOffConfirmationDialog.xaml.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\SignOffConfirmationDialog.xaml.cs",
+              "RelativeToolTip": "Views\\SignOffConfirmationDialog.xaml.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T01:22:43.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "SettingsWindow.xaml.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\SettingsWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\SettingsWindow.xaml.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\SettingsWindow.xaml.cs",
+              "RelativeToolTip": "Views\\SettingsWindow.xaml.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T20:19:28.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ChatMainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\ChatMainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\ChatMainWindow.xaml.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\ChatMainWindow.xaml.cs",
+              "RelativeToolTip": "Views\\ChatMainWindow.xaml.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAIwGkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T08:27:45.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwA4AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T05:36:25.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AOL_Reborn.csproj",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\AOL_Reborn.csproj",
+              "RelativeDocumentMoniker": "AOL_Reborn.csproj",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\AOL_Reborn.csproj",
+              "RelativeToolTip": "AOL_Reborn.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-04T07:26:40.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AOL_Reborn",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\AOL_Reborn.csproj",
+              "RelativeDocumentMoniker": "AOL_Reborn.csproj",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\AOL_Reborn.csproj",
+              "RelativeToolTip": "AOL_Reborn.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-15T23:38:31.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "SettingsWindow.xaml",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\SettingsWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\SettingsWindow.xaml",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Views\\SettingsWindow.xaml",
+              "RelativeToolTip": "Views\\SettingsWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-09T20:16:38.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "BuddyListViewModel.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\ViewModels\\BuddyListViewModel.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\ViewModels\\BuddyListViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\BuddyListViewModel.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\ViewModels\\BuddyListViewModel.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\ViewModels\\BuddyListViewModel.cs",
               "RelativeToolTip": "ViewModels\\BuddyListViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -301,23 +452,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Conversation.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Models\\Conversation.cs",
-              "RelativeDocumentMoniker": "Models\\Conversation.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Models\\Conversation.cs",
-              "RelativeToolTip": "Models\\Conversation.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwA8AAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T02:52:44.169Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 26,
               "Title": "ChatBoxViewModel.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\ViewModels\\ChatBoxViewModel.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\ViewModels\\ChatBoxViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\ChatBoxViewModel.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\ViewModels\\ChatBoxViewModel.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\ViewModels\\ChatBoxViewModel.cs",
               "RelativeToolTip": "ViewModels\\ChatBoxViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -325,23 +464,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "DatabaseMessageStorage.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Data\\DatabaseMessageStorage.cs",
-              "RelativeDocumentMoniker": "Data\\DatabaseMessageStorage.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Data\\DatabaseMessageStorage.cs",
-              "RelativeToolTip": "Data\\DatabaseMessageStorage.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAIwEUAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T01:07:33.854Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 25,
               "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\ViewModels\\LoginViewModel.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\ViewModels\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\LoginViewModel.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\ViewModels\\LoginViewModel.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\ViewModels\\LoginViewModel.cs",
               "RelativeToolTip": "ViewModels\\LoginViewModel.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAMwB4AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -349,35 +476,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T22:40:10.382Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ChatRepository.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Data\\ChatRepository.cs",
-              "RelativeDocumentMoniker": "Data\\ChatRepository.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Data\\ChatRepository.cs",
-              "RelativeToolTip": "Data\\ChatRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T00:25:24.08Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 27,
               "Title": "SessionManager.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Services\\SessionManager.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Services\\SessionManager.cs",
               "RelativeDocumentMoniker": "Services\\SessionManager.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Services\\SessionManager.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Services\\SessionManager.cs",
               "RelativeToolTip": "Services\\SessionManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -385,87 +488,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T02:51:14.301Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "IMessageStorage.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Data\\IMessageStorage.cs",
-              "RelativeDocumentMoniker": "Data\\IMessageStorage.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Data\\IMessageStorage.cs",
-              "RelativeToolTip": "Data\\IMessageStorage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T01:06:55.807Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "ChatMessage.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Models\\ChatMessage.cs",
-              "RelativeDocumentMoniker": "Models\\ChatMessage.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Models\\ChatMessage.cs",
-              "RelativeToolTip": "Models\\ChatMessage.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwB8AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T04:27:01.894Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "AOL_Reborn.csproj",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\AOL_Reborn.csproj",
-              "RelativeDocumentMoniker": "AOL_Reborn.csproj",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\AOL_Reborn.csproj",
-              "RelativeToolTip": "AOL_Reborn.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-04T07:26:40.734Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\App.xaml.cs",
-              "RelativeDocumentMoniker": "App.xaml.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\App.xaml.cs",
-              "RelativeToolTip": "App.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T05:36:25.736Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "Settings.Designer.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Properties\\Settings.Designer.cs",
+              "DocumentMoniker": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Properties\\Settings.Designer.cs",
               "RelativeDocumentMoniker": "Properties\\Settings.Designer.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Properties\\Settings.Designer.cs",
+              "ToolTip": "D:\\ELUM-i3\\AOL_App\\AOL_Reborn\\Properties\\Settings.Designer.cs",
               "RelativeToolTip": "Properties\\Settings.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-09T01:00:26.224Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "SignOffConfirmationDialog.xaml.cs",
-              "DocumentMoniker": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\SignOffConfirmationDialog.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\SignOffConfirmationDialog.xaml.cs",
-              "ToolTip": "D:\\AOL_Reborn_Chat\\AOL_Reborn\\Views\\SignOffConfirmationDialog.xaml.cs",
-              "RelativeToolTip": "Views\\SignOffConfirmationDialog.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T01:22:43.628Z"
             }
           ]
         }

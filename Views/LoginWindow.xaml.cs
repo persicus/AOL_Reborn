@@ -1,8 +1,10 @@
-﻿using AOL_Reborn.Data;
+﻿using System.IO;
+using System.Windows;
+using System.Windows.Input;
+using AOL_Reborn.Data;
 using AOL_Reborn.Models;
 using AOL_Reborn.ViewModels;
-using System.IO;
-using System.Windows;
+using WpfMessageBox = System.Windows.MessageBox;
 
 namespace AOL_Reborn.Views
 {
@@ -71,8 +73,8 @@ namespace AOL_Reborn.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading usernames: {ex.Message}",
-                                "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                WpfMessageBox.Show($"Error loading usernames: {ex.Message}",
+                                   "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -80,17 +82,14 @@ namespace AOL_Reborn.Views
         /// Opens the network settings window so the user can change the IP and ports.
         /// If settings are saved, the network service is restarted.
         /// </summary>
-        // In LoginWindow.xaml.cs
         private void NetworkSettingsButton_Click(object sender, RoutedEventArgs e)
         {
             SettingsWindow settingsWindow = new SettingsWindow();
             if (settingsWindow.ShowDialog() == true)
             {
-                // No need to call RestartNetworkButton_Click here,
-                // because the network service is only used in BuddyListWindow.
                 // The updated settings will be used when BuddyListWindow loads.
-                MessageBox.Show("Network settings updated. They will take effect on next login.",
-                                "Settings", MessageBoxButton.OK, MessageBoxImage.Information);
+                WpfMessageBox.Show("Network settings updated. They will take effect on next login.",
+                                    "Settings", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -103,8 +102,8 @@ namespace AOL_Reborn.Views
             // If the user left <New User> in place or typed nothing, prompt them
             if (string.IsNullOrWhiteSpace(username) || username == "<New User>")
             {
-                MessageBox.Show("Please enter a valid screen name.", "Login Error",
-                                MessageBoxButton.OK, MessageBoxImage.Warning);
+                WpfMessageBox.Show("Please enter a valid screen name.", "Login Error",
+                                   MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -143,6 +142,35 @@ namespace AOL_Reborn.Views
             BuddyListWindow buddyList = new BuddyListWindow();
             buddyList.Show();
             this.Close();
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO: Implement help functionality
+            WpfMessageBox.Show("Help button clicked!");
+        }
+
+        // Custom title bar event handlers
+
+        // Allow dragging the window when the user clicks the title bar
+        private void CustomTitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        // Minimize the window
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        // Close the window
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

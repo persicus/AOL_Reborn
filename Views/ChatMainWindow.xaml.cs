@@ -1,10 +1,11 @@
-﻿using AOL_Reborn.Data;
-using AOL_Reborn.Models;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using AOL_Reborn.Data;
+using AOL_Reborn.Models;
+using WpfMessageBox = System.Windows.MessageBox;
 
 namespace AOL_Reborn.Views
 {
@@ -96,7 +97,7 @@ namespace AOL_Reborn.Views
 
         private void DeleteChatHistory_Click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show($"Are you sure you want to clear chat history with {_chatPartner}?",
+            var result = WpfMessageBox.Show($"Are you sure you want to clear chat history with {_chatPartner}?",
                                           "Confirm Clear", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result == MessageBoxResult.Yes)
             {
