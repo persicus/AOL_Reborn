@@ -12,16 +12,16 @@ namespace AOL_Reborn.Views
 {
     public partial class ChatMainWindow : Window
     {
-        private IChatService _chatService;
-        private IMessageStorage _messageStorage;
-        private User _currentUser;
-        private string _chatPartner;
+        IChatService _chatService;
+        IMessageStorage _messageStorage;
+        User _currentUser;
+        string _chatPartner;
         public ObservableCollection<ChatMessage> Messages { get; set; } = new ObservableCollection<ChatMessage>();
 
         public ChatMainWindow(User currentUser, string chatPartner, IMessageStorage messageStorage)
         {
             InitializeComponent();
-            this.Title = $"Chat with {chatPartner}";
+            Title = $"Chat with {chatPartner}";
 
             // Use the shared instance of NetworkChatService
             _chatService = NetworkChatService.Instance;
@@ -31,27 +31,27 @@ namespace AOL_Reborn.Views
 
             // Load previous conversation messages from storage
             var conversationMessages = _messageStorage.GetMessages(_currentUser.Username, _chatPartner);
+
             foreach (var message in conversationMessages)
-            {
                 Messages.Add(message);
-            }
+            
+
             DataContext = this;
 
             // Auto-scroll: scroll to bottom when a new message is added.
             Messages.CollectionChanged += Messages_CollectionChanged;
 
             // Auto-scroll on window loaded
-            this.Loaded += (s, e) => ChatScrollViewer.ScrollToBottom();
+            Loaded += (s, e) => ChatScrollViewer.ScrollToBottom();
 
             // Subscribe to incoming messages (for non-mock users)
             _chatService.MessageReceived += message =>
             {
                 Dispatcher.Invoke(() =>
                 {
-                    if (IsMockUser(_chatPartner))
-                        return;
+                    if (IsMockUser(_chatPartner)) return;
 
-                    int conversationId = _messageStorage.GetOrCreateConversationId(_currentUser.Username, _chatPartner);
+                    var conversationId = _messageStorage.GetOrCreateConversationId(_currentUser.Username, _chatPartner);
                     var newMessage = ChatMessage.Create(_chatPartner, _currentUser.Username, message, conversationId);
                     _messageStorage.SaveMessageAsync(newMessage);
                     Messages.Add(newMessage);
@@ -62,7 +62,7 @@ namespace AOL_Reborn.Views
             _chatService.ConnectAsync("127.0.0.1", 5001, 5000);
         }
 
-        private void Messages_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        void Messages_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
@@ -70,13 +70,13 @@ namespace AOL_Reborn.Views
             }
         }
 
-        private async void SendButton_Click(object sender, RoutedEventArgs e)
+        async void SendButton_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(MessageInput.Text))
             {
                 using var db = new AppDbContext();
-                ChatRepository chatRepo = new ChatRepository(db);
-                int conversationId = chatRepo.GetOrCreateConversationId(_currentUser.Username, _chatPartner);
+                var chatRepo = new ChatRepository(db);
+                var conversationId = chatRepo.GetOrCreateConversationId(_currentUser.Username, _chatPartner);
 
                 var newMessage = ChatMessage.Create(_currentUser.Username, _chatPartner, MessageInput.Text, conversationId);
                 db.Messages.Add(newMessage);
@@ -84,7 +84,7 @@ namespace AOL_Reborn.Views
 
                 Messages.Add(newMessage);
                 await _chatService.SendMessageAsync(newMessage.Message);
-                string userMessage = MessageInput.Text;
+                var userMessage = MessageInput.Text;
                 MessageInput.Clear();
 
                 // For mock users, simulate an auto-reply after a delay.
@@ -97,10 +97,11 @@ namespace AOL_Reborn.Views
             }
         }
 
-        private void DeleteChatHistory_Click(object sender, RoutedEventArgs e)
+        void DeleteChatHistory_Click(object sender, RoutedEventArgs e)
         {
             var result = WpfMessageBox.Show($"Are you sure you want to clear chat history with {_chatPartner}?",
                                           "Confirm Clear", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
             if (result == MessageBoxResult.Yes)
             {
                 _messageStorage.DeleteChatHistory(_currentUser.Username, _chatPartner);
@@ -109,7 +110,7 @@ namespace AOL_Reborn.Views
         }
 
         // Determines if the chat partner is one of our mock users.
-        private bool IsMockUser(string chatPartner)
+        bool IsMockUser(string chatPartner)
         {
             return chatPartner.Equals("EchoBot", StringComparison.OrdinalIgnoreCase) ||
                    chatPartner.Equals("Scott", StringComparison.OrdinalIgnoreCase) ||
@@ -117,10 +118,10 @@ namespace AOL_Reborn.Views
         }
 
         // Simulates an auto-reply from the chat partner.
-        private void SimulateAutoReply(string userMessage)
+        void SimulateAutoReply(string userMessage)
         {
+            var reply = string.Empty;
 
-            string reply = string.Empty;
             if (_chatPartner.Equals("EchoBot", StringComparison.OrdinalIgnoreCase))
             {
                 reply = $"You said \"{userMessage}\"?....,C'mon dudenothing better to say?";
@@ -138,21 +139,21 @@ namespace AOL_Reborn.Views
                 reply = "Auto-reply: Message received.";
             }
 
-            int conversationId = _messageStorage.GetOrCreateConversationId(_currentUser.Username, _chatPartner);
+            var conversationId = _messageStorage.GetOrCreateConversationId(_currentUser.Username, _chatPartner);
             var autoReplyMessage = ChatMessage.Create(_chatPartner, _currentUser.Username, reply, conversationId);
             _messageStorage.SaveMessageAsync(autoReplyMessage);
             Messages.Add(autoReplyMessage);
         }
     }
 
-
     // Converter: Returns Red if the message sender is the current user, Blue otherwise.
     public class MessageSenderToColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string senderName = value as string;
-            string currentUsername = SessionManager.GetCurrentUser().Username;
+            var senderName = value as string;
+            var currentUsername = SessionManager.GetCurrentUser().Username;
+
             if (string.Equals(senderName, currentUsername, StringComparison.OrdinalIgnoreCase))
             {
                 return System.Windows.Media.Brushes.Red;

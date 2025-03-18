@@ -11,14 +11,13 @@ namespace AOL_Reborn.Views
 {
     public partial class LoginWindow : Window
     {
-
         // Path to store the last logged username
-        private static readonly string settingsDirectory = Path.Combine(
+        static readonly string settingsDirectory = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
             "AOL_Reborn"
         );
 
-        private static readonly string settingsPath = Path.Combine(settingsDirectory, "lastuser.txt");
+        static readonly string settingsPath = Path.Combine(settingsDirectory, "lastuser.txt");
 
         /* private void TestSoundButton_Click(object sender, RoutedEventArgs e)
         {
@@ -41,7 +40,7 @@ namespace AOL_Reborn.Views
         /// Loads usernames from the database into the ComboBox, inserts "<New User>",
         /// and selects the last logged user if found.
         /// </summary>
-        private void LoadUsernames()
+        void LoadUsernames()
         {
             try
             {
@@ -67,6 +66,7 @@ namespace AOL_Reborn.Views
 
                 // Attempt to read the last logged user from file
                 string? lastUser = null;
+
                 if (File.Exists(settingsPath))
                 {
                     lastUser = File.ReadAllText(settingsPath).Trim();
@@ -94,9 +94,10 @@ namespace AOL_Reborn.Views
         /// Opens the network settings window so the user can change the IP and ports.
         /// If settings are saved, the network service is restarted.
         /// </summary>
-        private void NetworkSettingsButton_Click(object sender, RoutedEventArgs e)
+        void NetworkSettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            SettingsWindow settingsWindow = new SettingsWindow();
+            var settingsWindow = new SettingsWindow();
+
             if (settingsWindow.ShowDialog() == true)
             {
                 // The updated settings will be used when BuddyListWindow loads.
@@ -105,17 +106,18 @@ namespace AOL_Reborn.Views
             }
         }
 
-        private async void SignInButton_Click(object sender, RoutedEventArgs e)
+        async void SignInButton_Click(object sender, RoutedEventArgs e)
         {
             // The final text in the ComboBox is the typed or selected username
-            string username = UsernameBox.Text.Trim();
-            string password = PasswordBox.Password; // Potentially used later
+            var username = UsernameBox.Text.Trim();
+            var password = PasswordBox.Password; // Potentially used later
 
             // If the user left <New User> in place or typed nothing, prompt them
             if (string.IsNullOrWhiteSpace(username) || username == "<New User>")
             {
                 WpfMessageBox.Show("Please enter a valid screen name.", "Login Error",
                                    MessageBoxButton.OK, MessageBoxImage.Warning);
+
                 return;
             }
 
@@ -150,19 +152,19 @@ namespace AOL_Reborn.Views
             // Store the user in the session
             SessionManager.SetCurrentUser(existingUser);
 
-            //Play dialup sound :)
+            // Play dialup sound :)
             AudioManager.PlaySound("dial_up.mp3");
 
             // Wait for 5 seconds
             await Task.Delay(TimeSpan.FromSeconds(5));
 
             // Open Buddy List window
-            BuddyListWindow buddyList = new BuddyListWindow();
+            var buddyList = new BuddyListWindow();
             buddyList.Show();
-            this.Close();
+            Close();
         }
 
-        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        void HelpButton_Click(object sender, RoutedEventArgs e)
         {
             // TODO: Implement help functionality
             WpfMessageBox.Show("Help button clicked!");
@@ -171,7 +173,7 @@ namespace AOL_Reborn.Views
         // Custom title bar event handlers
 
         // Allow dragging the window when the user clicks the title bar
-        private void CustomTitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        void CustomTitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ButtonState == MouseButtonState.Pressed)
             {
@@ -180,15 +182,12 @@ namespace AOL_Reborn.Views
         }
 
         // Minimize the window
-        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
         // Close the window
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        void CloseButton_Click(object sender, RoutedEventArgs e) => Close();
     }
 }

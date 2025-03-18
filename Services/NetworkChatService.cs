@@ -3,13 +3,10 @@ using AOL_Reborn.Services;
 
 public class NetworkChatService : IChatService
 {
-
-
-
-    private static readonly Lazy<NetworkChatService> _instance = new Lazy<NetworkChatService>(() => new NetworkChatService());
+    static readonly Lazy<NetworkChatService> _instance = new Lazy<NetworkChatService>(() => new NetworkChatService());
     public static NetworkChatService Instance => _instance.Value;
 
-    private readonly NetworkService _networkService;
+    readonly NetworkService _networkService;
 
     public event Action<string> MessageReceived = delegate { };
 
@@ -17,6 +14,7 @@ public class NetworkChatService : IChatService
     private NetworkChatService()
     {
         _networkService = new NetworkService();
+
         _networkService.MessageReceived += message =>
         {
             // Play "message received" sound
@@ -38,7 +36,4 @@ public class NetworkChatService : IChatService
 
         await _networkService.SendMessageAsync(message);
     }
-
-
-
 }

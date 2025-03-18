@@ -103,10 +103,7 @@ namespace AOL_Reborn.Migrations
                     b.Navigation("Conversation");
                 });
 
-            modelBuilder.Entity("AOL_Reborn.Models.Conversation", b =>
-                {
-                    b.Navigation("Messages");
-                });
+            modelBuilder.Entity("AOL_Reborn.Models.Conversation", b => b.Navigation("Messages"));
 #pragma warning restore 612, 618
         }
     }

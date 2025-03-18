@@ -1,17 +1,12 @@
 ﻿using AOL_Reborn.Models;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace AOL_Reborn.Data
 {
     public class ChatRepository
     {
-        private readonly AppDbContext _dbContext;
+        readonly AppDbContext _dbContext;
 
-        public ChatRepository(AppDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
+        public ChatRepository(AppDbContext dbContext) => _dbContext = dbContext;
 
         public void SaveMessage(ChatMessage message)
         {

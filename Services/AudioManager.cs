@@ -8,7 +8,7 @@ namespace AOL_Reborn.Audio
     public static class AudioManager
     {
         // Cache of preloaded SoundPlayer instances
-        private static readonly Dictionary<string, SoundPlayer> _players = new Dictionary<string, SoundPlayer>();
+        static readonly Dictionary<string, SoundPlayer> _players = new Dictionary<string, SoundPlayer>();
 
         // Call this method during initialization for all your sound files
         public static void PreloadSound(string fileName)
@@ -47,6 +47,4 @@ namespace AOL_Reborn.Audio
             }
         }
     }
-
 }
-

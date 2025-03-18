@@ -6,20 +6,13 @@ namespace AOL_Reborn.Services
 {
     public class NetworkService : NetworkManagerBase
     {
+        UdpClient? _udpClient;
 
-
-        private UdpClient? _udpClient;
-
-        private IPEndPoint? _remoteEndPoint;
+        IPEndPoint? _remoteEndPoint;
 
         public event Action<string, bool> StatusUpdated = delegate { };
 
-        public NetworkService()
-        {
-            _udpClient = new UdpClient();
-        }
-
-
+        public NetworkService() => _udpClient = new UdpClient();
 
         public override async Task ConnectAsync(string server, int receivePort, int sendPort)
         {
@@ -59,7 +52,7 @@ namespace AOL_Reborn.Services
             }
         }
 
-        private async Task StartListening()
+        async Task StartListening()
         {
             if (_udpClient == null)
             {
@@ -72,7 +65,7 @@ namespace AOL_Reborn.Services
                 while (_udpClient != null) // Prevents listening if disconnected
                 {
                     var result = await _udpClient.ReceiveAsync();
-                    string receivedMessage = Encoding.UTF8.GetString(result.Buffer);
+                    var receivedMessage = Encoding.UTF8.GetString(result.Buffer);
 
                     if (!string.IsNullOrEmpty(receivedMessage))
                     {
@@ -98,8 +91,8 @@ namespace AOL_Reborn.Services
                 return;
             }
 
-            string offlineMessage = $"{Environment.UserName}|Offline";
-            byte[] data = Encoding.UTF8.GetBytes(offlineMessage);
+            var offlineMessage = $"{Environment.UserName}|Offline";
+            var data = Encoding.UTF8.GetBytes(offlineMessage);
             _udpClient.SendAsync(data, data.Length, _remoteEndPoint);
         }
 
@@ -111,7 +104,7 @@ namespace AOL_Reborn.Services
                 return;
             }
 
-            byte[] data = Encoding.UTF8.GetBytes(message);
+            var data = Encoding.UTF8.GetBytes(message);
             await _udpClient.SendAsync(data, data.Length, _remoteEndPoint);
         }
     }

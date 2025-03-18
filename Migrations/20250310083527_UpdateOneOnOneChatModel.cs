@@ -26,10 +26,7 @@ namespace AOL_Reborn.Migrations
                     IsOnline = table.Column<bool>(type: "INTEGER", nullable: false),
                     Username = table.Column<string>(type: "TEXT", nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Friends", x => x.Id);
-                });
+                constraints: table => table.PrimaryKey("PK_Friends", x => x.Id));
         }
     }
 }

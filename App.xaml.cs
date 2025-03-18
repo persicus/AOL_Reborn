@@ -15,7 +15,7 @@ namespace AOL_Reborn
 
         [LibraryImport("kernel32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        private static partial bool AllocConsole();
+        public static partial bool AllocConsole();
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -31,10 +31,9 @@ namespace AOL_Reborn
             db.Database.EnsureCreated();
 
             // Preload sounds at startup
-            AudioManager.PreloadSound("imsend.wav");
-            AudioManager.PreloadSound("imrcv.wav");
-            AudioManager.PreloadSound("dooropen.wav");
+            AudioManager.PreloadSound("Voicy_Instant Message.mp3");
+            AudioManager.PreloadSound("Voicy_Drop.mp3");
+            AudioManager.PreloadSound("dial_up");
         }
-
     }
 }

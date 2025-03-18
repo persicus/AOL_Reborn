@@ -12,7 +12,7 @@ namespace AOL_Reborn.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "chatapp.db");
+            var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "chatapp.db");
             optionsBuilder.UseSqlite($"Data Source={dbPath}");
         }
     }

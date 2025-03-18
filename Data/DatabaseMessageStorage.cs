@@ -74,6 +74,7 @@ public class DatabaseMessageStorage : IMessageStorage
                     ParticipantTwo = userTwo,
                     CreatedAt = DateTime.Now
                 };
+
                 db.Conversations.Add(conversation);
                 db.SaveChanges();
             }

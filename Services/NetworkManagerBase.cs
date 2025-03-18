@@ -4,10 +4,7 @@
     {
         public event Action<string> MessageReceived = delegate { };
 
-        protected void OnMessageReceived(string message)
-        {
-            MessageReceived?.Invoke(message);
-        }
+        protected void OnMessageReceived(string message) => MessageReceived?.Invoke(message);
 
         public abstract Task ConnectAsync(string server, int receivePort, int sendPort);
 

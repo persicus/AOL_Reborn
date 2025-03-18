@@ -5,7 +5,7 @@ namespace AOL_Reborn.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-        private string _username;
+        string _username;
 
         public string Username
         {
@@ -23,14 +23,14 @@ namespace AOL_Reborn.ViewModels
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public LoginViewModel()
         {
             // Future expansion (e.g., loading stored username)
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null!)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

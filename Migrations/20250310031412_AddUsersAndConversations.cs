@@ -20,10 +20,7 @@ namespace AOL_Reborn.Migrations
                     ParticipantTwo = table.Column<string>(type: "TEXT", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Conversations", x => x.Id);
-                });
+                constraints: table => table.PrimaryKey("PK_Conversations", x => x.Id));
 
             migrationBuilder.CreateTable(
                 name: "Friends",
@@ -34,10 +31,7 @@ namespace AOL_Reborn.Migrations
                     Username = table.Column<string>(type: "TEXT", nullable: false),
                     IsOnline = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Friends", x => x.Id);
-                });
+                constraints: table => table.PrimaryKey("PK_Friends", x => x.Id));
 
             migrationBuilder.CreateTable(
                 name: "Users",
@@ -49,10 +43,7 @@ namespace AOL_Reborn.Migrations
                     DisplayName = table.Column<string>(type: "TEXT", nullable: false),
                     IsOnline = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Users", x => x.Id);
-                });
+                constraints: table => table.PrimaryKey("PK_Users", x => x.Id));
 
             migrationBuilder.CreateTable(
                 name: "Messages",
@@ -69,6 +60,7 @@ namespace AOL_Reborn.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Messages", x => x.Id);
+
                     table.ForeignKey(
                         name: "FK_Messages_Conversations_ConversationId",
                         column: x => x.ConversationId,

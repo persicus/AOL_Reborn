@@ -15,7 +15,7 @@ namespace AOL_Reborn.Views
             SendPortTextBox.Text = Settings.Default.SendPort.ToString();
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             // Validate and save settings
             Settings.Default.ServerIp = ServerIpTextBox.Text.Trim();
@@ -42,13 +42,13 @@ namespace AOL_Reborn.Views
 
             Settings.Default.Save();
             WpfMessageBox.Show("Network settings saved.", "Settings", MessageBoxButton.OK, MessageBoxImage.Information);
-            this.DialogResult = true;
+            DialogResult = true;
             Close();
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false;
+            DialogResult = false;
             Close();
         }
     }

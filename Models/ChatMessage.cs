@@ -25,7 +25,7 @@ namespace AOL_Reborn.Models
 
         public Conversation? Conversation { get; set; }
 
-        //Private constructor to enforce factory usage
+        // Private constructor to enforce factory usage
         private ChatMessage(string sender, string receiver, string message, int conversationId)
         {
             Sender = sender;
