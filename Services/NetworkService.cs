@@ -6,6 +6,8 @@ namespace AOL_Reborn.Services
 {
     public class NetworkService : NetworkManagerBase
     {
+
+
         private UdpClient? _udpClient;
 
         private IPEndPoint? _remoteEndPoint;
@@ -16,6 +18,8 @@ namespace AOL_Reborn.Services
         {
             _udpClient = new UdpClient();
         }
+
+
 
         public override async Task ConnectAsync(string server, int receivePort, int sendPort)
         {

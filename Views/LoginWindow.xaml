@@ -3,13 +3,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Sign On"
-    Width="200"
-    Height="390"
-    AllowsTransparency="False"
-    Background="Transparent"
-    ResizeMode="NoResize"
+    Width="235"
+    Height="410"
+    Icon="/Assets/BuddyIcon.ico"
+    ResizeMode="CanMinimize"
+    UseLayoutRounding="True"
     WindowStartupLocation="CenterScreen"
-    WindowStyle="None">
+    WindowStyle="ThreeDBorderWindow">
 
     <!--  Define resources at the Window level  -->
     <Window.Resources>
@@ -38,7 +38,7 @@
             </Setter>
         </Style>
 
-        <!--  New style for the Sign On button  -->
+        <!--  Sign On button style  -->
         <Style x:Key="SignOnButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="40" />
             <Setter Property="Height" Value="40" />
@@ -70,7 +70,7 @@
             </Setter>
         </Style>
 
-        <!--  New style for the Setup button  -->
+        <!--  Setup button style  -->
         <Style x:Key="SetupButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="40" />
             <Setter Property="Height" Value="40" />
@@ -102,7 +102,7 @@
             </Setter>
         </Style>
 
-        <!--  New style for the Help button  -->
+        <!--  Help button style  -->
         <Style x:Key="HelpButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="40" />
             <Setter Property="Height" Value="40" />
@@ -133,288 +133,200 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <!--  System Window Button Style  -->
+        <Style x:Key="SystemWindowButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#E5E5E5" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#D0D0D0" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
     <!--  Outer Border for rounded corners  -->
     <Border
         Background="WhiteSmoke"
         BorderBrush="WhiteSmoke"
-        BorderThickness="0"
+        BorderThickness="2"
         CornerRadius="10">
-        <Grid>
+
+        <!--  Main Grid Container with 10px horizontal padding  -->
+        <Grid Margin="10,0,10,0">
             <Grid.RowDefinitions>
-                <!--  Row 0: Custom Title Bar  -->
-                <RowDefinition Height="35" />
-                <!--  Row 1: Login UI  -->
+                <RowDefinition Height="Auto" />
+                <!--  Row 0: Logo  -->
+                <RowDefinition Height="Auto" />
+                <!--  Row 1: ScreenName label & icon  -->
+                <RowDefinition Height="Auto" />
+                <!--  Row 2: Username ComboBox  -->
+                <RowDefinition Height="Auto" />
+                <!--  Row 3: "Get a Screen Name" link  -->
+                <RowDefinition Height="Auto" />
+                <!--  Row 4: Password label & box  -->
+                <RowDefinition Height="Auto" />
+                <!--  Row 5: "Forgot Password?" link  -->
+                <RowDefinition Height="Auto" />
+                <!--  Row 6: Save/Auto-login checkboxes  -->
+                <RowDefinition Height="Auto" />
+                <!--  Row 7: Buttons  -->
+                <RowDefinition Height="Auto" />
+                <!--  Row 8: Version Text  -->
                 <RowDefinition Height="*" />
+                <!--  Row 9: Filler space if needed  -->
             </Grid.RowDefinitions>
 
-            <!--  Custom Title Bar  -->
-            <Border
+            <!--  Row 0: Main Logo (smaller)  -->
+            <Image
                 Grid.Row="0"
-                Margin="0,0,0,10"
-                Background="WhiteSmoke"
-                CornerRadius="15,15,15,15"
-                MouseLeftButtonDown="CustomTitleBar_MouseLeftButtonDown">
-                <Grid>
-                    <!--  Left side: Buddy icon and title text  -->
-                    <StackPanel
-                        Margin="10,0,0,0"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                        <Image
-                            Width="15"
-                            Height="15"
-                            Margin="0,0,5,0"
-                            Source="/Assets/AIM_Logo.png" />
-                        <TextBlock
-                            VerticalAlignment="Center"
-                            FontFamily="Microsoft Sans Serif"
-                            FontSize="10"
-                            Foreground="Black"
-                            Text="Sign On" />
-                    </StackPanel>
-                    <!--  Right side: Minimize and Close buttons  -->
-                    <StackPanel
+                Height="160"
+                HorizontalAlignment="Center"
+                Source="/Assets/LoginWindowMainLogo.png" />
+
+            <!--  Row 1: ScreenName Label & Red Key Icon  -->
+            <StackPanel
+                Grid.Row="1"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Left"
+                Orientation="Horizontal">
+                <TextBlock
+                    Margin="0,0,5,0"
+                    VerticalAlignment="Center"
+                    FontFamily="Microsoft Sans Serif"
+                    FontSize="12"
+                    FontStyle="Italic"
+                    FontWeight="ExtraBold"
+                    Text="ScreenName:" />
+                <Image
+                    Width="25"
+                    VerticalAlignment="Center"
+                    Source="/Assets/RedKey.png" />
+            </StackPanel>
+
+            <!--  Row 2: Username ComboBox  -->
+            <ComboBox
+                x:Name="UsernameBox"
+                Grid.Row="2"
+                Width="190"
+                Height="20"
+                HorizontalAlignment="Center"
+                IsEditable="True"
+                MaxDropDownHeight="50" />
+
+            <!--  Row 3: "Get a Screen Name" link  -->
+            <TextBlock
+                Grid.Row="3"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Left"
+                Cursor="Hand"
+                FontSize="12"
+                Foreground="Blue"
+                Text="Get a Screen Name"
+                TextDecorations="Underline" />
+
+            <!--  Row 4: Password Label & Box  -->
+            <StackPanel
+                Grid.Row="4"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    FontFamily="Microsoft Sans Serif"
+                    FontSize="12"
+                    FontWeight="ExtraBold"
+                    Text="Password:" />
+                <PasswordBox
+                    x:Name="PasswordBox"
+                    Width="190"
+                    Height="20"
+                    Margin="0,5,0,0" />
+            </StackPanel>
+
+            <!--  Row 5: "Forgot Password?" link  -->
+            <TextBlock
+                Grid.Row="5"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Left"
+                Cursor="Hand"
+                FontSize="12"
+                Foreground="Blue"
+                Text="Forgot Password?"
+                TextDecorations="Underline" />
+
+            <!--  Row 6: Save Password & Auto-login Options  -->
+            <StackPanel
+                Grid.Row="6"
+                Margin="0,5,0,0"
+                Orientation="Horizontal">
+                <CheckBox
+                    x:Name="SavePasswordCheckBox"
+                    Margin="0,0,20,0"
+                    Content="Save password"
+                    FontSize="10" />
+                <CheckBox
+                    x:Name="AutoLoginCheckBox"
+                    Content="Auto-login"
+                    FontSize="10" />
+            </StackPanel>
+
+            <!--  Row 7: Buttons (Help, Setup, Sign On)  -->
+            <Grid Grid.Row="7" Margin="0,5,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <!--  Left side: Help & Setup  -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Button
+                        x:Name="HelpButton"
                         Margin="0,0,10,0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                        <Button
-                            Width="20"
-                            Height="20"
-                            Margin="-120,0,0,0"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Click="MinimizeButton_Click"
-                            Content="---"
-                            Foreground="Black" />
-                        <Button
-                            Width="20"
-                            Height="20"
-                            Margin="0,0,0,0"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Click="CloseButton_Click"
-                            Content="X"
-                            Foreground="Black" />
-                    </StackPanel>
-                    <!--  Horizontal Separator Line below the title bar  -->
-                    <Rectangle
-                        Height="0.5"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Bottom"
-                        Fill="Gray" />
-                </Grid>
-            </Border>
+                        Click="HelpButton_Click"
+                        Style="{StaticResource HelpButtonStyle}" />
+                    <Button
+                        x:Name="SetupButton"
+                        Click="NetworkSettingsButton_Click"
+                        Style="{StaticResource SetupButtonStyle}" />
+                </StackPanel>
+                <!--  Right side: Sign On  -->
+                <Button
+                    x:Name="SignOnButton"
+                    Grid.Column="2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Click="SignInButton_Click"
+                    Style="{StaticResource SignOnButtonStyle}" />
+            </Grid>
 
-            <!--  Login UI Area  -->
-            <Border
-                Grid.RowSpan="2"
-                Margin="0,12,0,10"
-                Padding="10">
-                <Grid Margin="0,0,0,-10">
-                    <Grid.RowDefinitions>
-                        <!--  New horizontal separator above the main logo  -->
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <!--  Main Logo  -->
-                        <RowDefinition Height="Auto" />
-                        <!--  Separator  -->
-                        <RowDefinition Height="Auto" />
-                        <!--  ScreenName row  -->
-                        <RowDefinition Height="Auto" />
-                        <!--  Username ComboBox  -->
-                        <RowDefinition Height="Auto" />
-                        <!--  Password Label  -->
-                        <RowDefinition Height="Auto" />
-                        <!--  Password Field  -->
-                        <RowDefinition Height="Auto" />
-                        <!--  Forgot Password Link  -->
-                        <RowDefinition Height="Auto" />
-                        <!--  CheckBoxes  -->
-                        <RowDefinition Height="Auto" />
-                        <!--  Buttons  -->
-                        <RowDefinition Height="Auto" />
-                        <!--  Version Text  -->
-                    </Grid.RowDefinitions>
+            <!--  Row 8: Version Text  -->
+            <!--<Button Content="Test Sound" Click="TestSoundButton_Click" Width="100" Height="30" HorizontalAlignment="Center" Margin="10"/> -->
 
-                    <!--  New separator line above the main logo  -->
+            <TextBlock
+                Grid.Row="8"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Center"
+                FontSize="10"
+                FontWeight="Bold"
+                Foreground="Gray"
+                Text="Version: 3.17.2025" />
 
-                    <!--  Main Logo  -->
-                    <Image
-                        Grid.Row="1"
-                        Height="150"
-                        Margin="0,5,0,5"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Source="/Assets/LoginWindowMainLogo.png" />
-
-                    <!--  Existing Separator Line  -->
-                    <Rectangle
-                        Grid.Row="2"
-                        Grid.RowSpan="2"
-                        Height="0.5"
-                        Margin="-3,-12,-3,10"
-                        Fill="Gray" />
-
-                    <!--  ScreenName row: label and red key icon  -->
-                    <StackPanel
-                        Grid.Row="3"
-                        HorizontalAlignment="Left"
-                        Orientation="Horizontal">
-                        <TextBlock
-                            Margin="0,3,10,0"
-                            VerticalAlignment="Center"
-                            FontFamily="Microsoft Sans Serif"
-                            FontSize="12"
-                            FontStyle="Italic"
-                            FontWeight="ExtraBold"
-                            Text="ScreenName:" />
-                        <Image
-                            Width="25"
-                            Margin="-5,3,0,0"
-                            HorizontalAlignment="Left"
-                            Source="/Assets/RedKey.png" />
-                    </StackPanel>
-
-                    <!--  Username ComboBox  -->
-                    <ComboBox
-                        x:Name="UsernameBox"
-                        Grid.Row="4"
-                        Width="180"
-                        Height="20"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        IsEditable="True"
-                        IsReadOnly="False"
-                        MaxDropDownHeight="50"
-                        StaysOpenOnEdit="True">
-                        <ComboBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <VirtualizingStackPanel />
-                            </ItemsPanelTemplate>
-                        </ComboBox.ItemsPanel>
-                    </ComboBox>
-
-                    <!--  Password Label  -->
-                    <TextBlock
-                        Grid.Row="5"
-                        Margin="0,20,0,5"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        FontFamily="Microsoft Sans Serif"
-                        FontSize="12"
-                        FontWeight="ExtraBold"
-                        Text="Password:" />
-                    <!--  Forgot Password Link (moved under the password field)  -->
-                    <TextBlock
-                        Grid.Row="5"
-                        Margin="0,-25,0,10"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Cursor="Hand"
-                        FontSize="12"
-                        Foreground="Blue"
-                        Text="Get a Screen Name"
-                        TextDecorations="Underline" />
-                    <!--  Password Field  -->
-                    <PasswordBox
-                        x:Name="PasswordBox"
-                        Grid.Row="5"
-                        Grid.RowSpan="2"
-                        Width="180"
-                        Height="20"
-                        Margin="0,40,0,2"
-                        HorizontalAlignment="Center" />
-
-                    <!--  Forgot Password Link (moved under the password field)  -->
-                    <TextBlock
-                        Grid.Row="7"
-                        Margin="0,-3,0,10"
-                        HorizontalAlignment="Left"
-                        Cursor="Hand"
-                        FontSize="12"
-                        Foreground="Blue"
-                        Text="Forgot Password?"
-                        TextDecorations="Underline" />
-
-                    <!--  Save Password & Auto-login Options  -->
-                    <StackPanel
-                        Grid.Row="8"
-                        Margin="0,0,0,0"
-                        HorizontalAlignment="Left"
-                        Orientation="Horizontal">
-                        <CheckBox
-                            x:Name="SavePasswordCheckBox"
-                            Margin="0,0,20,0"
-                            Content="Save password"
-                            FontSize="10" />
-                        <CheckBox
-                            x:Name="AutoLoginCheckBox"
-                            Margin="5,0,0,0"
-                            HorizontalAlignment="Right"
-                            Content="Auto-login"
-                            FontSize="10" />
-                    </StackPanel>
-
-                    <!--  Buttons Area  -->
-                    <Grid
-                        Grid.Row="8"
-                        Grid.RowSpan="2"
-                        Height="60"
-                        VerticalAlignment="Top">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="30" />
-                            <ColumnDefinition Width="70" />
-                            <!--  Left group: Help and Setup  -->
-                            <ColumnDefinition Width="20" />
-                            <!--  Gap  -->
-                            <ColumnDefinition Width="*" />
-                            <!--  Right group: Sign On  -->
-                        </Grid.ColumnDefinitions>
-                        <!--  Left Group: Help and Setup buttons  -->
-                        <StackPanel
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            Width="100"
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal">
-                            <Button
-                                x:Name="HelpButton"
-                                Margin="-8,20,10,0"
-                                HorizontalContentAlignment="Left"
-                                Click="HelpButton_Click"
-                                Style="{StaticResource HelpButtonStyle}" />
-                            <Button
-                                x:Name="SetupButton"
-                                Margin="-18,20,0,0"
-                                Click="NetworkSettingsButton_Click"
-                                Style="{StaticResource SetupButtonStyle}" />
-                        </StackPanel>
-                        <!--  Right Group: Sign On button, justified to the right  -->
-                        <Button
-                            x:Name="SignOnButton"
-                            Grid.Column="2"
-                            Grid.ColumnSpan="2"
-                            Margin="0,20,10,0"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            Click="SignInButton_Click"
-                            Style="{StaticResource SignOnButtonStyle}" />
-                    </Grid>
-
-                    <!--  Version Text  -->
-                    <TextBlock
-                        Grid.Row="9"
-                        Margin="0,50,0,0"
-                        HorizontalAlignment="Center"
-                        FontSize="10"
-                        FontWeight="Bold"
-                        Foreground="Gray"
-                        Text="Version: 3.17.2025" />
-                </Grid>
-            </Border>
+            <!--  Row 9: Empty filler space to push content up if needed  -->
         </Grid>
     </Border>
 </Window>

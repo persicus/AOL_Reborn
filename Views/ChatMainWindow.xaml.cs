@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using AOL_Reborn.Audio;
 using AOL_Reborn.Data;
 using AOL_Reborn.Models;
 using WpfMessageBox = System.Windows.MessageBox;
@@ -89,7 +90,8 @@ namespace AOL_Reborn.Views
                 // For mock users, simulate an auto-reply after a delay.
                 if (IsMockUser(_chatPartner))
                 {
-                    await Task.Delay(1000);
+                    await Task.Delay(TimeSpan.FromSeconds(2));
+                    AudioManager.PlaySound("Voicy_Instant Message.mp3");
                     SimulateAutoReply(userMessage);
                 }
             }
@@ -117,10 +119,11 @@ namespace AOL_Reborn.Views
         // Simulates an auto-reply from the chat partner.
         private void SimulateAutoReply(string userMessage)
         {
+
             string reply = string.Empty;
             if (_chatPartner.Equals("EchoBot", StringComparison.OrdinalIgnoreCase))
             {
-                reply = $"Haha, EchoBot here! I received: \"{userMessage}\". Thanks for that!";
+                reply = $"You said \"{userMessage}\"?....,C'mon dudenothing better to say?";
             }
             else if (_chatPartner.Equals("Scott", StringComparison.OrdinalIgnoreCase))
             {
@@ -141,6 +144,7 @@ namespace AOL_Reborn.Views
             Messages.Add(autoReplyMessage);
         }
     }
+
 
     // Converter: Returns Red if the message sender is the current user, Blue otherwise.
     public class MessageSenderToColorConverter : IValueConverter

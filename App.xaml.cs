@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using System.Windows;
+using AOL_Reborn.Audio;
 using AOL_Reborn.Data;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -28,6 +29,12 @@ namespace AOL_Reborn
 
             using var db = new AppDbContext();
             db.Database.EnsureCreated();
+
+            // Preload sounds at startup
+            AudioManager.PreloadSound("imsend.wav");
+            AudioManager.PreloadSound("imrcv.wav");
+            AudioManager.PreloadSound("dooropen.wav");
         }
+
     }
 }

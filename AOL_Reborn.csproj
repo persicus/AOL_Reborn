@@ -21,6 +21,15 @@
     <None Remove="Assets\AIM_Logo.jpeg" />
     <None Remove="Assets\AIM_Logo.png" />
     <None Remove="Assets\AOL_Logo.jpeg" />
+    <None Remove="Assets\Audio\dial_up.mp3" />
+    <None Remove="Assets\Audio\dooropen.wav" />
+    <None Remove="Assets\Audio\doorslam.wav" />
+    <None Remove="Assets\Audio\imrcv.wav" />
+    <None Remove="Assets\Audio\imsend.wav" />
+    <None Remove="Assets\Audio\Voicy_Buddy In.mp3" />
+    <None Remove="Assets\Audio\Voicy_Buddy Out.mp3" />
+    <None Remove="Assets\Audio\Voicy_Drop.mp3" />
+    <None Remove="Assets\Audio\Voicy_Instant Message.mp3" />
     <None Remove="Assets\BuddyIcon.ico" />
     <None Remove="Assets\Help_Normal.png" />
     <None Remove="Assets\Help_Shaded.png" />
@@ -37,6 +46,33 @@
     <Resource Include="Assets\SignOn_Normal.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Assets\Audio\dial_up.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\dooropen.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\doorslam.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\imrcv.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\imsend.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\Voicy_Buddy In.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\Voicy_Buddy Out.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\Voicy_Drop.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\Voicy_Instant Message.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Help_Normal.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

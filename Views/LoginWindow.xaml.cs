@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows;
 using System.Windows.Input;
+using AOL_Reborn.Audio;
 using AOL_Reborn.Data;
 using AOL_Reborn.Models;
 using AOL_Reborn.ViewModels;
@@ -10,6 +11,7 @@ namespace AOL_Reborn.Views
 {
     public partial class LoginWindow : Window
     {
+
         // Path to store the last logged username
         private static readonly string settingsDirectory = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
@@ -17,6 +19,16 @@ namespace AOL_Reborn.Views
         );
 
         private static readonly string settingsPath = Path.Combine(settingsDirectory, "lastuser.txt");
+
+        /* private void TestSoundButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Log to the console (or Visual Studio's Output window)
+            Console.WriteLine("TestSoundButton was clicked.");
+
+            // Also, using Debug.WriteLine is a good option
+            //Debug.WriteLine("TestSoundButton was clicked.");
+            AudioManager.PlaySound("Voicy_Buddy In.mp3");
+        }*/
 
         public LoginWindow()
         {
@@ -93,7 +105,7 @@ namespace AOL_Reborn.Views
             }
         }
 
-        private void SignInButton_Click(object sender, RoutedEventArgs e)
+        private async void SignInButton_Click(object sender, RoutedEventArgs e)
         {
             // The final text in the ComboBox is the typed or selected username
             string username = UsernameBox.Text.Trim();
@@ -137,6 +149,12 @@ namespace AOL_Reborn.Views
 
             // Store the user in the session
             SessionManager.SetCurrentUser(existingUser);
+
+            //Play dialup sound :)
+            AudioManager.PlaySound("dial_up.mp3");
+
+            // Wait for 5 seconds
+            await Task.Delay(TimeSpan.FromSeconds(5));
 
             // Open Buddy List window
             BuddyListWindow buddyList = new BuddyListWindow();

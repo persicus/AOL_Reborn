@@ -8,6 +8,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/dial_up.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/dooropen.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/doorslam.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/imrcv.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/imsend.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/voicy_buddy%20in.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/voicy_buddy%20out.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/voicy_drop.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/audio/voicy_instant%20message.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/help_normal.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/help_shaded.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/setup_normal.png")]
